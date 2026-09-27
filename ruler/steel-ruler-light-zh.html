@@ -2229,7 +2229,7 @@ header h1 {
 <div class="canvas-card" id="canvas-card">
     <!-- Options ribbon — one-line toolbar fused to the top of the canvas block -->
     <div class="opts-ribbon" id="opts-bar">
-      <div class="opt-chip opt-units" id="unit-sys" role="group" aria-label="单位制">
+      <div class="opt-chip opt-units" id="unit-sys" role="group" aria-label="单位制" style="display:none">
         <span class="rb-lbl">单位制</span>
         <span class="seg">
           <button id="unit-si"  type="button" class="unit-btn active" data-system="si">SI</button>
@@ -2239,11 +2239,11 @@ header h1 {
       <div class="opt-chip opt-units" id="si-subunits" role="group" aria-label="公制显示单位" style="display:none">
         <span class="rb-lbl">单位</span>
         <span class="seg">
-          <button id="unit-mm" type="button" class="unit-btn" data-unit="mm">mm</button>
-          <button id="unit-cm" type="button" class="unit-btn active" data-unit="cm">cm</button>
+          <button id="unit-mm" type="button" class="unit-btn active" data-unit="mm">mm</button>
+          <button id="unit-cm" type="button" class="unit-btn" data-unit="cm">cm</button>
         </span>
       </div>
-      <div class="opt-chip opt-units" id="lc-chip" role="group" aria-label="最小分度值（精度）" title="精度 — 最小分度值">
+      <div class="opt-chip opt-units" id="lc-chip" role="group" aria-label="最小分度值（精度）" title="精度 — 最小分度值" style="display:none">
         <span class="rb-lbl">LC</span>
         <span class="seg">
           <button type="button" class="unit-btn lc-pill active" data-lc="1" data-imp="16">1</button>
@@ -2657,8 +2657,8 @@ const state = {
   hinted      : false,
   // Options (Pass A)
   system      : 'si',      // 'si' | 'imp' — measurement system; modules never mix
-  units       : 'cm',      // 'mm' | 'cm' (SI sub-unit) | 'inch' (forced in imp)
-  siUnit      : 'cm',      // remembered SI sub-unit while in imp mode
+  units       : 'mm',      // 'mm' | 'cm' (SI sub-unit) | 'inch' (forced in imp)
+  siUnit      : 'mm',      // remembered SI sub-unit while in imp mode
   snapCommon  : false,     // snap to common fastener sizes
   estimate    : true,      // 允许游标停在两条刻线之间（估读最后一位）
   zeroError   : 0,         // worn-zero offset in mm (−2..+2)
@@ -2721,6 +2721,10 @@ canvas.height = CH * DPR;
 const EST_STEP   = 0.1;      // 估读步进：最小分度值的 1/5
 const estimating = () => state.estimate === true && state.system !== 'imp';
 const round4     = v  => Math.round(v * 1e4) / 1e4;
+const estDpMm    = () => LC >= 1 ? 1 : 2;
+const estDpCm    = () => LC >= 1 ? 2 : 3;
+const fmtEstMm   = v  => v.toFixed(estDpMm());
+const fmtEstCm   = v  => (v / 10).toFixed(estDpCm());
 const grid    = () => estimating() ? EST_STEP
                  : (state.system === 'imp' ? impStep() : LC);
 const snapMM  = v  => round4(Math.round(v / grid()) * grid());
@@ -2836,9 +2840,10 @@ function tickIfChanged() {
 // Format a length in the currently selected unit (S-U)
 function formatLength(mm) {
   const m = mm + state.zeroError;     // worn-zero error: scale shows offset
-  if (state.units === 'cm')   return { val: (m / 10).toFixed(2),  unit: 'cm' };
+  if (state.units === 'cm')   return { val: estimating() ? fmtEstCm(m) : (m / 10).toFixed(2),  unit: 'cm' };
   if (state.units === 'inch') return { val: (m / INCH_MM).toFixed(3), unit: 'in' };
-  return                            { val: m.toFixed(m % 1 === 0 ? 0 : 1), unit: 'mm' };
+  if (estimating())           return { val: fmtEstMm(m), unit: 'mm' };
+  return                             { val: m.toFixed(m % 1 === 0 ? 0 : 1), unit: 'mm' };
 }
 
 // Convert a value typed in the given display unit back to mm (inverse of formatLength)
@@ -3055,8 +3060,8 @@ function drawRuler() {
     drawInchScale(BOT_BASE, -1);
   } else {
     // 6-7. Both edges: cm labels only
-    drawMetricScale(TOP_BASE, 1, false);
-    drawMetricScale(BOT_BASE, -1, false);
+    drawMetricScale(TOP_BASE, 1, true);
+    drawMetricScale(BOT_BASE, -1, true);
   }
 
   // 8. Brand engraving in the middle band
@@ -3463,14 +3468,17 @@ function updateReadingPanel() {
     $('tr-step2').innerHTML = 'IN = ' + frac.divs + ' &divide; ' + IMP_DEN + ' = <span id="f-cm">' + inDec + '</span> in';
     $('f-note').textContent = '长度 = ' + frac.text + ' in  ·  ' + inDec + ' in';
   } else {
-    const cm   = (mm / 10).toFixed(2);
+    const est  = estimating();
+    const mmStr = est ? fmtEstMm(mm) : mm;
+    const cm   = est ? fmtEstCm(mm) : (mm / 10).toFixed(2);
     const m    = (mm / 1000).toFixed(4);
     // MM cell with optional worn-zero highlight
     if (ze === 0 || state.twoCursor || state.mode !== 'free') {
-      $('mm-val').textContent = mm;
+      $('mm-val').textContent = mmStr;
     } else {
-      $('mm-val').innerHTML = '<span style="opacity:.55">' + scaleMM +
-        '</span> <span style="color:var(--accent);font-size:.7em">→ ' + mm + '</span>';
+      const scaleStr = est ? fmtEstMm(scaleMM) : scaleMM;
+      $('mm-val').innerHTML = '<span style="opacity:.55">' + scaleStr +
+        '</span> <span style="color:var(--accent);font-size:.7em">→ ' + mmStr + '</span>';
     }
     $('cm-val').textContent   = cm;
     $('m-val').textContent    = m;
@@ -3479,8 +3487,8 @@ function updateReadingPanel() {
       '<span class=\"trl-msr\">MM</span>：尺面读数（mm） &nbsp;&middot;&nbsp; ' +
       '<span class=\"trl-csr\">CM</span>：换算成 cm &nbsp;&middot;&nbsp; ' +
       '<span class=\"trl-lc\">LC</span>（最小分度值）= <span id=\"trl-lc-val\">' + LC + '</span> mm';
-    $('tr-step1').innerHTML = 'MM = <span id="f-mm">' + mm + '</span> mm &nbsp;（尺面读数）';
-    $('tr-step2').innerHTML = 'CM = <span id="f-mm2">' + mm + '</span> &divide; 10 = <span id="f-cm">' + cm + '</span> cm';
+    $('tr-step1').innerHTML = 'MM = <span id="f-mm">' + mmStr + '</span> mm &nbsp;（尺面读数）';
+    $('tr-step2').innerHTML = 'CM = <span id="f-mm2">' + mmStr + '</span> &divide; 10 = <span id="f-cm">' + cm + '</span> cm';
     $('f-note').textContent = `长度 = ${cm} cm`;
   }
 
@@ -3695,7 +3703,7 @@ function checkAnswer() {
 
   $('reading-cells').classList.remove('cells-hidden');
   $('tr-formula').classList.remove('formula-hidden');
-  $('readout-display').textContent   = state.system === 'imp' ? formatInchFrac(correct).text : correct;
+  $('readout-display').textContent   = state.system === 'imp' ? formatInchFrac(correct).text : (estimating() ? fmtEstMm(correct) : correct);
   $('readout-display').style.display = 'block';
   $('practice-input').style.display  = 'none';
   $('dr-label').textContent          = '长度';
@@ -3775,7 +3783,7 @@ function submitQuizAnswer() {
 
   const correctTxt = displayLen(correct);
 
-  $('readout-display').textContent   = state.system === 'imp' ? formatInchFrac(correct).text : correct;
+  $('readout-display').textContent   = state.system === 'imp' ? formatInchFrac(correct).text : (estimating() ? fmtEstMm(correct) : correct);
   $('readout-display').style.display = 'block';
   $('practice-input').style.display  = 'none';
   $('dr-label').textContent          = '长度';
@@ -4492,7 +4500,7 @@ submitQuizAnswer = function () {
   state.quizAnswers.push({ givenTxt: displayLen(given), correct, ok });
   state.quizAnswered = true;
   state.barMM = correct;
-  $('readout-display').textContent   = state.system === 'imp' ? formatInchFrac(correct).text : correct;
+  $('readout-display').textContent   = state.system === 'imp' ? formatInchFrac(correct).text : (estimating() ? fmtEstMm(correct) : correct);
   $('readout-display').style.display = 'block';
   $('reading-cells').classList.remove('cells-hidden');
   $('tr-formula').classList.remove('formula-hidden');

@@ -2700,7 +2700,7 @@ header h1 {
         <button class="pill" data-value="inside" title="卡尺式内径千分尺 —— 两个硬质合金量爪从孔内向外测量。套筒同样反向标注，而且量爪本身有宽度，所以合拢时读数是 5 mm 而不是零。">内径</button>
       </div>
     </div>
-    <div class="ctrl-group" id="unit-group">
+    <div class="ctrl-group" id="unit-group" style="display:none">
       <div class="pill-tabs" id="unit-toggle">
         <button class="pill active" data-value="si">公制</button>
         <button class="pill" data-value="imperial">英制</button>
@@ -3924,6 +3924,10 @@ function snapToLc(mm) {
   const lc = getLcMm();
   return Math.round(mm / lc) * lc;
 }
+const MICRO_EST = 0.001;
+function snapToEst(mm) {
+  return Math.round(mm / MICRO_EST) * MICRO_EST;
+}
 // [SG-ENGINE-END]
 
 // [SG-GEOM-BEGIN]
@@ -4373,7 +4377,7 @@ function drawWorkpieceDims() {
 // ── Display formatting ────────────────────────────────────────────
 function fmtReading(mm) {
   if (isImperial()) return (mm * MM_TO_IN).toFixed(3);
-  return mm.toFixed(2);
+  return mm.toFixed(3);
 }
 
 function fmtMsr(mm) {
@@ -4381,7 +4385,7 @@ function fmtMsr(mm) {
   // physically shows MSR = 0 in that case (the 0 mm line is still at thimble edge).
   const msrMm = Math.max(0, getMSR(mm));
   if (isImperial()) return (msrMm * MM_TO_IN).toFixed(3);
-  return msrMm.toFixed(2);
+  return msrMm.toFixed(3);
 }
 
 function fmtLc() {
@@ -4389,7 +4393,7 @@ function fmtLc() {
   // which was correct only while those were the only two: a depth micrometer
   // has its own constants and a hardcoded lookup would quote the wrong one the
   // moment the instruments stopped being interchangeable.
-  return getLcDisplay().toFixed(isImperial() ? 3 : 2);
+  return getLcDisplay().toFixed(isImperial() ? 3 : 3);
 }
 
 function fmtTr(mm) {
@@ -4405,19 +4409,19 @@ function fmtTr(mm) {
   // getBaseMm() is 0 and this is the same arithmetic it always was.
   const rod = getBaseMm();
   if (isImperial()) return ((rod + msr) * MM_TO_IN + csr * lc).toFixed(3);
-  return (rod + msr + csr * lc).toFixed(2);
+  return (rod + msr + csr * lc).toFixed(3);
 }
 
 // The value the student reports: rod + screw, in display units.
 function fmtTotal(screwMm) {
   const t = getTotalMm(screwMm);
-  return isImperial() ? (t * MM_TO_IN).toFixed(3) : t.toFixed(2);
+  return isImperial() ? (t * MM_TO_IN).toFixed(3) : t.toFixed(3);
 }
 
 function fmtPart(mm) {
   const csr = getCSR(mm);
   const lc = getLcDisplay();
-  return (csr * lc).toFixed(isImperial() ? 3 : 2);
+  return (csr * lc).toFixed(isImperial() ? 3 : 3);
 }
 
 // ── Zero-error helpers ────────────────────────────────────────────
@@ -5965,12 +5969,18 @@ function drawGaugeContent() {
   // CSR/texture maths handle it via modular arithmetic, while spindle/thimble
   // translation is clamped so the thimble never moves past the anvil.
   const displayMm = state.mm + getZeOffsetMm();
-  const csr       = getCSR(snapToLc(displayMm));
   const msdPx     = getMsdPx();
   const msdCount  = getMsdCount();
   const csd       = getCsd();
   const imperial  = isImperial();
   const N         = csd / 4;
+  // Fractional CSR: the thimble can park between two divisions (estimation reading)
+  const _p = getPitch(), _lc = getLcMm();
+  const _revsExact = displayMm / _p;
+  const _csrExact  = (_revsExact - Math.floor(_revsExact + 1e-9)) * (_p / _lc);
+  const _csrInt    = Math.floor(_csrExact + 1e-9);
+  const csrFrac    = Math.max(0, Math.min(1 - 1e-9, _csrExact - _csrInt));
+  const csr        = ((_csrInt % csd) + csd) % csd;
 
   const rawShift  = getShiftPx(displayMm);
   const maxShift  = getShiftPx(getMaxMm());
@@ -6087,7 +6097,7 @@ function drawGaugeContent() {
     const xa = OX.scaleX + shift + THIMBLE_KNURL_X1;
     const xb = OX.scaleX + shift + THIMBLE_KNURL_X2;
     const cy = OX.scaleY, R = R2 - 2;
-    const rotA = dir * (snapToLc(displayMm) / getPitch()) * 2 * Math.PI;
+    const rotA = dir * (displayMm / getPitch()) * 2 * Math.PI;
     ctx.save();
     ctx.beginPath(); ctx.rect(xa, cy - R, xb - xa, 2 * R); ctx.clip();
     const gd = ctx.createLinearGradient(0, cy - R, 0, cy + R);
@@ -6136,7 +6146,7 @@ function drawGaugeContent() {
     const cy   = OX.thimbleY3 + RD_CY;
     const yTop = OX.thimbleY3 + RD_CY - RD_R;
     const yBot = OX.thimbleY3 + RD_CY + RD_R;
-    const rotA = dir * (snapToLc(displayMm) / getPitch()) * 2 * Math.PI;
+    const rotA = dir * (displayMm / getPitch()) * 2 * Math.PI;
     const xa = x0 + RD_X1, xb = x0 + RD_X2;
 
     ctx.save();
@@ -6217,7 +6227,7 @@ function drawGaugeContent() {
     // horizon are not drawn at all — a real thimble hides them round the back.
     const lim = Math.ceil(N) + 1;
     for (let i = -lim; i <= lim; i++) {
-      const pos = thimbleMarkPos(i);
+      const pos = thimbleMarkPos(i) - csrFrac;
       const th  = pos * dth;
       if (Math.abs(th) > Math.PI / 2) continue;
       const aSin = Math.abs(Math.sin(th));
@@ -6694,9 +6704,9 @@ function newPractice() {
     const zeM  = state.zeLc * lcMm;
     const lo   = Math.max(lcMm * 10, -zeM + lcMm);          // observed > 0
     const hi   = Math.min(maxMm - lcMm * 10, maxMm - zeM - lcMm); // observed < maxMm
-    state.mm   = snapToLc(lo + Math.random() * Math.max(lcMm, hi - lo));
+    state.mm   = snapToEst(lo + Math.random() * Math.max(lcMm, hi - lo));
   } else {
-    state.mm   = clampMm(snapToLc(lcMm * 10 + Math.random() * (maxMm - lcMm * 20)));
+    state.mm   = clampMm(snapToEst(lcMm * 10 + Math.random() * (maxMm - lcMm * 20)));
   }
   state.answered = false;
   $('feedback').textContent = '';
@@ -6734,7 +6744,7 @@ function getCorrectDisplay(mmVal) {
     const csr   = getCSR(q);
     return ((rod + msrMm) * MM_TO_IN + csr * getLcDisplay()).toFixed(3);
   }
-  return (rod + q).toFixed(2);
+  return (rod + q).toFixed(3);
 }
 // [SG-GRADE-END]
 
@@ -6760,12 +6770,12 @@ function checkAnswer() {
   const targetMm   = state.mm;   // state.mm IS the TRUE value the student must enter
   const correctStr = getCorrectDisplay(targetMm);
   const correctVal = parseFloat(correctStr);
-  const tolerance = getLcDisplay() / 2 + 1e-6;
+  const tolerance = isImperial() ? getLcDisplay() / 2 + 1e-6 : MICRO_EST * 1.5;
   // Two answers that PRINT the same are the same reading: the tool grades to
   // the instrument's own precision, so a typed value that renders as the very
   // string quoted back as the answer can never be marked wrong.
   const ok = Math.abs(input - correctVal) <= tolerance ||
-             input.toFixed(isImperial() ? 3 : 2) === correctStr;
+             input.toFixed(isImperial() ? 3 : 3) === correctStr;
   state.answered = true;
 
   $('reading-cells').classList.remove('cells-hidden');
@@ -6834,7 +6844,7 @@ function startQuiz() {
     if (hi <= lo) { z = 0; }
     let trueMm, key, guard = 0;
     do {
-      trueMm = snapToLc(lo + Math.random() * Math.max(lcMm, hi - lo));
+      trueMm = snapToEst(lo + Math.random() * Math.max(lcMm, hi - lo));
       key = trueMm.toFixed(4) + '_' + z;
     } while (used.has(key) && ++guard < 50);
     used.add(key);
@@ -6905,12 +6915,12 @@ function submitQuizAnswer() {
   const correctMm = q.trueMm;
   const correctStr = getCorrectDisplay(correctMm);
   const correctVal = parseFloat(correctStr);
-  const tolerance = getLcDisplay() / 2 + 1e-6;
+  const tolerance = isImperial() ? getLcDisplay() / 2 + 1e-6 : MICRO_EST * 1.5;
   // Two answers that PRINT the same are the same reading: the tool grades to
   // the instrument's own precision, so a typed value that renders as the very
   // string quoted back as the answer can never be marked wrong.
   const ok = Math.abs(input - correctVal) <= tolerance ||
-             input.toFixed(isImperial() ? 3 : 2) === correctStr;
+             input.toFixed(isImperial() ? 3 : 3) === correctStr;
 
   state.quizAnswers.push({ given: input, correctMm, correctStr, ok });
   state.quizAnswered = true;
