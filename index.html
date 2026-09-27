@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MechSimulator - 测量工具模拟器</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: #0d1117;
+      color: #e6edf3;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      text-align: center;
+      padding: 3rem 1rem 2rem;
+    }
+
+    header img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      margin-bottom: 1rem;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #26c6da;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: #8b949e;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+      width: 100%;
+    }
+
+    .tool-card {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .tool-card:hover {
+      transform: translateY(-4px);
+      border-color: #26c6da;
+      box-shadow: 0 8px 24px rgba(38, 198, 218, 0.15);
+    }
+
+    .tool-card .card-body {
+      padding: 1.5rem;
+    }
+
+    .tool-card .icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .tool-card h2 {
+      font-size: 1.3rem;
+      color: #f0f6fc;
+      margin-bottom: 0.5rem;
+    }
+
+    .tool-card p {
+      font-size: 0.95rem;
+      color: #8b949e;
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+
+    .tool-card .links {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .tool-card .links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: background 0.15s;
+    }
+
+    .btn-primary {
+      background: #26c6da;
+      color: #0d1117;
+    }
+
+    .btn-primary:hover {
+      background: #4dd0e1;
+    }
+
+    .btn-secondary {
+      background: #21262d;
+      color: #c9d1d9;
+      border: 1px solid #30363d;
+    }
+
+    .btn-secondary:hover {
+      background: #30363d;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      background: rgba(38, 198, 218, 0.15);
+      color: #26c6da;
+      margin-bottom: 0.75rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: auto;
+      color: #484f58;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 480px) {
+      header h1 { font-size: 1.5rem; }
+      .tools-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="ruler/assets/img/no_background_logo.png" alt="MechSimulator Logo">
+    <h1>MechSimulator</h1>
+    <p>交互式测量工具模拟器 — 钢尺、游标卡尺、螺旋测微器在线练习</p>
+  </header>
+
+  <main class="tools-grid">
+
+    <div class="tool-card">
+      <div class="card-body">
+        <div class="icon">📏</div>
+        <span class="tag">精度 0.5 mm / 1/16"</span>
+        <h2>钢尺模拟器</h2>
+        <p>Steel Ruler — 练习 0–150 mm 毫米刻度和英寸 1/16" 精度读数，含引导练习和计时测验。</p>
+        <div class="links">
+          <a href="ruler/steel-ruler-light-zh.html" class="btn-primary">中文版</a>
+          <a href="ruler/steel-ruler-light.html" class="btn-secondary">English</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="tool-card">
+      <div class="card-body">
+        <div class="icon">📐</div>
+        <span class="tag">精度 0.02 mm</span>
+        <h2>游标卡尺模拟器</h2>
+        <p>Vernier Caliper — 练习游标卡尺读数，支持公制和英制，含外径、内径和深度测量模式。</p>
+        <div class="links">
+          <a href="vernier/vernier-caliper-light-zh.html" class="btn-primary">中文版</a>
+          <a href="vernier/vernier-caliper-light.html" class="btn-secondary">English</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="tool-card">
+      <div class="card-body">
+        <div class="icon">🔧</div>
+        <span class="tag">精度 0.01 mm</span>
+        <h2>螺旋测微器模拟器</h2>
+        <p>Micrometer / Screw Gauge — 练习螺旋测微器读数，含主尺、副尺和估读练习。</p>
+        <div class="links">
+          <a href="micrometer/screw-gauge-light-zh.html" class="btn-primary">中文版</a>
+          <a href="micrometer/screw-gauge-light.html" class="btn-secondary">English</a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    MechSimulator &copy; 2026 &mdash; 测量工具在线练习平台
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,186 @@
+  <!-- ═══ 使用指南 — 内联可折叠 ═══════ -->
+  <section class="user-guide" id="user-guide">
+    <div class="user-guide-title">
+      <span class="guide-icon-badge" aria-hidden="true">&#128214;</span>
+      使用指南 &mdash; 游标卡尺模拟器
+    </div>
+
+    <details>
+      <summary><span class="guide-section-num">1</span> 概述</summary>
+      <div class="guide-content">
+        <p>这个<strong>游标卡尺模拟器</strong>是一个免费的在线工具，让你在逼真的交互环境中练习读取游标卡尺刻度。它同时支持<strong>公制（毫米）</strong>和<strong>英制（英寸）</strong>两套完全独立的量具。公制模式下可选三档精度：<strong>0.02 mm</strong>、<strong>0.05 mm</strong>、<strong>0.1 mm</strong> 最小分度值；英制模式提供两把真实的英寸卡尺：小数英制（<strong>0.001&Prime;</strong>，游标 25 分度、尺身四十分之一英寸）和分数英制（<strong>1/128&Prime;</strong>，游标 8 分度、尺身十六分之一英寸），并直接用分数显示读数。四种模式 &mdash; <strong>模拟</strong>、<strong>浏览</strong>、<strong>练习</strong>、<strong>测验</strong> &mdash; 带你从理论走向熟练的动手测量。</p>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="guide-section-num">2</span> 设定与零位</summary>
+      <div class="guide-content">
+        <img src="ug-hero.webp" alt="游标卡尺模拟器界面预览" width="300" height="92" loading="lazy"
+             style="float:right;max-width:150px;height:auto;margin:0 0 8px 12px;border-radius:6px;border:1px solid var(--border,#2a3050);">
+        <p>页面加载后处于<strong>模拟</strong>模式，公制单位、0.02 mm 精度。开始时可以这样做：</p>
+        <ul>
+          <li><strong>拖动游标量爪</strong>左右移动即可设定任意测量值，也可以用键盘左右方向键做微小调整。</li>
+          <li>卡尺下方的<strong>读数区</strong>和<strong>信息行</strong>会实时更新 &mdash; 显示当前读数、MSR、VSR、LC 以及完整的 TR 计算过程。</li>
+          <li>用<strong>分度值（LC）</strong>按钮切换精度：0.05 mm、0.02 mm 或 0.1 mm。切到英制后，同样的按钮会变成 0.001&Prime; 和 1/128&Prime;。</li>
+          <li>切换 <strong>公制 / 英制</strong> 可在公制卡尺（0&ndash;100 mm）和英制卡尺（0&ndash;4&Prime;）之间切换，整个刻度会按正确的分度重绘。</li>
+          <li>用<strong>放大</strong>按钮放大刻度区域，更容易看清游标上与主尺对齐的那条线。</li>
+          <li>尺身固定按<strong>厘米</strong>标注数字（1&nbsp;2&nbsp;3&hellip;）。真实的 150&nbsp;mm 卡尺两种刻法都在卖 &mdash; 同样的刻度线，一边标 10&nbsp;20&nbsp;30，一边标 1&nbsp;2&nbsp;3 &mdash; 本工具用的是厘米刻法。它只影响显示，不改变任何读数。</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="guide-section-num">3</span> 读数</summary>
+      <div class="guide-content">
+        <p>在模拟模式下卡尺完全听你指挥。把量爪拖到任意位置，读数区会给出精确测量值。这个模式最适合用来体会主尺与游标是如何配合的：观察量爪移动时游标上的对齐线怎样跟着变化 &mdash; 那条与主尺刻度完全重合、被金色高亮标出的线。公式面板会把每次读数逐步拆开：MSR、VSR、LC，以及最终的总读数。拖动时还有轻微的咔嗒音效反馈。先用这个模式建立信心，再进入练习。</p>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="guide-section-num">3b</span> 测量真实工件</summary>
+      <div class="guide-content">
+        <p>在模拟模式下，画布右下角的<strong>测量工件</strong>按钮会把一个真实工件放进量爪之间。共有九个部件可选 &mdash; 矩形量块、立放圆柱、横放圆柱、轴承钢球、正方体量块、M12 六角螺母、&Oslash;10 钻头柄部、量规垫片，以及要用<strong>内测量爪</strong>测量的圆环 / 衬套。</p>
+        <ol>
+          <li>选一个工件。它会靠在<strong>固定量爪</strong>上，游标量爪自动张开到最大，就像真实测量开始时那样。</li>
+          <li>向左拖动游标量爪（或按 <kbd>&larr;</kbd>，或点<em>合拢到工件</em>）。量爪会<strong>稳稳停在工件上</strong> &mdash; 无论怎么推都穿不过去。</li>
+          <li>两个测量面都接触时，工件上会出现绿色接触标记，伴随一声轻响，下方的尺寸标注线会显示出工件的真实尺寸。</li>
+          <li>现在照常读刻度：MSR + (VSR &times; LC)。</li>
+        </ol>
+        <p><strong>摆放方向很重要。</strong>同一个圆柱会出现两次：立放时量爪夹住的是<em>直径</em>，横放时量到的是<em>长度</em>。六角螺母必须量的是一对<em>对边</em>，绝不能量对角。</p>
+        <p><strong>内径的测法正好相反。</strong>选<strong>圆环 / 衬套</strong>，它会出现在量具上方，套在两个上刀口量爪上，此时内测量爪已经收拢在孔内。接下来要<em>张开</em>量爪 &mdash; 向右拖、按 <kbd>&rarr;</kbd>，或点<em>张开贴合孔壁</em> &mdash; 直到两个爪尖都贴住孔壁停住。尺寸箭头朝外指向孔壁，这是工程图上标注孔的惯例。由于爪尖有圆弧半径够不到真正的最宽处，卡尺量内孔会比真实直径小几丝；精度要求高时应该用内径量表或内径千分尺。</p>
+        <p><strong>为什么读数可能和工件对不上。</strong>这里所有尺寸都按真实值给，而不是凑成整数 &mdash; 5/8&Prime; 轴承钢球是 15.88&nbsp;mm，M12 螺母实测小于 18.00&nbsp;mm 的公称值。在 0.05&nbsp;mm 游标上，钢球只能读到 15.90&nbsp;mm。这个差值不是错误，而是量具的<strong>分辨力极限</strong>，工件信息栏会把它写清楚。换成 0.02&nbsp;mm 分度，这个差就消失了；把同一颗钢球换成英制卡尺，读数正好是 0.625&Prime;。</p>
+        <p>工件装夹状态下打开<strong>零误差</strong>，就能看到车间里最要紧的那种影响：量爪仍然停在真实尺寸上，但刻度会一直偏大或偏小，直到你做了修正。</p>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="guide-section-num">3c</span> 「演示读数」&mdash; 引导式读数</summary>
+      <div class="guide-content">
+        <img src="screenshot-3.webp?v=2" alt="演示读数功能在游标卡尺上运行" width="700" height="287" loading="lazy"
+             style="float:right;max-width:190px;height:auto;margin:0 0 8px 12px;border-radius:6px;border:1px solid var(--border,#2a3050);">
+        <p>卡尺右下角圆形播放按钮就在<em>测量工件</em>旁边，点击后会针对当前量具上的读数开始一步步讲解。它不是视频：每一支箭头、每一处高亮、每一次计数都直接画在刻度上，而且每个数字都来自读数区用的同一套计算，所以绝不会出现与工具说法不一致的情况。</p>
+        <ul>
+          <li><strong>第 1 步 &mdash; 主尺读数。</strong>一条测量线沿尺身长到游标零线处，一条红色指示线把该位置向上引到主尺，箭头标出它已经越过的最后一条刻度。字幕会先请你读出来，再告诉你数值。</li>
+          <li><strong>第 2 步 &mdash; 找到对齐线。</strong>游标刻线被逐条试过，并说明每一条差多少，每条比前一条多差一个最小分度值，直到有一条严丝合缝地落上。它还会特意再试<em>对齐线之后</em>的那一条，让你看到这条对齐线是唯一的。</li>
+          <li><strong>第 3 步 &mdash; 数格数。</strong>从游标零线一直数到那条线，数到哪格就点亮哪格。上面的方框显示格数，下面的方框显示这些格子值多少 &mdash; 一格一个最小分度值地累加。</li>
+          <li><strong>第 4 步 &mdash; 总读数。</strong>TR 卡片按你书写时的顺序，一行一行地填出来。</li>
+          <li><strong>第 5 步 &mdash; 零误差</strong>，只在卡尺确实有零误差时才出现。</li>
+        </ul>
+        <p>视图会自动缩放，把读数的两端同时留在屏幕内 &mdash; 在 50 分度刻度上，两端可能相距 49&nbsp;mm &mdash; 倍率是根据你的读数算出来的，而不是预先写死。演示过程中 MSR 和 VSR 两个格子一开始是空的，随着讲解推导出来才填进去，所以在讲到之前，答案绝不会先出现在屏幕上。</p>
+        <p><strong>操作：</strong><kbd>空格</kbd>播放/暂停，<kbd>&rarr;</kbd>/<kbd>&larr;</kbd> 前后翻步，<kbd>Esc</kbd> 关闭，也可以用画布上的四个按钮。逐步播放会在每一步的开头停住 &mdash; 给全班讲解时很好用。一旦碰到量爪、改变精度、切换单位或加载工件，演示就会结束，因为整套步骤是为开始演示时量具上的那个读数准备的。</p>
+        <p>在<strong>测验</strong>模式下不提供该功能；<strong>练习</strong>模式下则要等你交卷判分之后才会有：一步步读出量具读数，正是练习要你自己给出的答案。</p>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="guide-section-num">3d</span> 紧固螺钉与拇指滚轮 &mdash; 量具上的两个操作件</summary>
+      <div class="guide-content">
+        <p>这里你做得最多的是拖动游标量爪。但卡尺上有两个部件本身就是操作件，而且都在图纸上直接操作，不用去侧边面板找 &mdash; 它们也正是你在工作台上会去摸的那两个。</p>
+        <h4>紧固螺钉</h4>
+        <p>游标头顶部那个小滚花螺钉。<strong>点它就把量爪锁住</strong>，再点一下松开。锁住后它变成金色并显示一把挂锁，画布工具栏上的<strong>锁定</strong>按钮显示同样状态 &mdash; 它们是同一个控制的两个入口，不是两个设置。</p>
+        <ul>
+          <li>锁住期间量爪不会动，而且每一次尝试都会给出提示：螺钉闪烁、旁边出现说明文字，屏幕阅读器也会朗读。一个拒绝动作却一声不吭的锁，只会让人以为工具坏了。</li>
+          <li>两种移动方式都会被拒绝 &mdash; 拖动<em>和</em> <kbd>&larr;</kbd>&nbsp;/&nbsp;<kbd>&rarr;</kbd> 方向键。</li>
+          <li>当工具替你移动量爪时它会自动松开：开始引导式读数、练习里的播放扫掠、或者加载工件时。一个可能把量具锁死的卡钳是缺陷而不是功能。</li>
+          <li>它刻意不做记忆。重新打开一把量爪不肯动的卡尺，看起来就像是坏了，而不是"记住了上次的设置"。</li>
+        </ul>
+        <p><strong>真实卡尺上它为什么存在：</strong>锁紧、移开、<em>然后</em>读数。这一下同时消除了夹紧力漂移和视差，也是你能把一个尺寸搬到平台上或传递到其他量具上的原因。</p>
+        <h4>拇指滚轮（微调）</h4>
+        <p>游标头右端下方的滚花轮。手直接拖过尺身虽然快但很粗 &mdash; 手移动一个像素大约相当于 0.19&nbsp;mm，在 0.02&nbsp;mm 卡尺上是<strong>十格</strong> &mdash; 滚轮的作用就是放好最后那几格：</p>
+        <ul>
+          <li><strong>点击</strong>它的左半或右半，正好移动<strong>一个最小分度值</strong>。向右张开量爪，向左合拢，与方向键方向一致；鼠标悬停时下方的箭头会闪烁，让你按下前就知道方向。</li>
+          <li><strong>按住</strong>会连续走，先慢后快 &mdash; 手感和按住键盘键一样。走到行程尽头或遇到工件会自己停下。</li>
+          <li><strong>拖动</strong>它则是连续微进给，大约三个屏幕像素走一格，而不是一个像素走十格。拖动游标头的其他位置仍然是快速移动。</li>
+          <li><strong>滚动</strong>鼠标滚轮（在卡尺任意位置）每格走一个分度值。</li>
+        </ul>
+        <p>滚轮与尺身是联动的，所以量爪一动它就跟着转 &mdash; 包括你拖动、用方向键、或加载工件的时候 &mdash; 不只是你碰它的时候。</p>
+        <p><strong>真实卡尺上它为什么存在：</strong>夹紧力过大是卡尺测量中最大的误差来源之一，常常是最小分度值的好几倍。用拇指拨滚轮推进游标头，能得到轻而可重复的接触压力；推尺框做不到。合拢到工件还能在轻微阻力下抽出为止。</p>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="guide-section-num">4</span> 刻度是怎么工作的</summary>
+      <div class="guide-content">
+        <p>浏览模式是一座游标卡尺知识的参考库，分为五个分类：</p>
+        <ul>
+          <li><strong>部件与结构：</strong>一张可交互的标注图。把鼠标移到（或点击）十二个编号标注中的任意一个 &mdash; 固定量爪、游标量爪、外测量爪、内测量爪、主尺尺身、公制刻度、英制刻度、游标刻度、游标零线、测深杆、拇指滚轮、紧固螺钉 &mdash; 图上对应部件会高亮，旁边显示它的说明、规格和车间经验。</li>
+          <li><strong>游标卡尺类型：</strong>普通、带表、数显、深度游标卡尺 &mdash; 了解它们的区别、量程和用途。</li>
+          <li><strong>最小分度值：</strong>0.02 mm（50 分度）、0.05 mm（20 分度）、0.1 mm（10 分度）、0.001&Prime;（英制 25 分度）和 1/128&Prime;（分数英制 8 分度）的算例，附 LC 公式。</li>
+          <li><strong>零误差：</strong>认识无误差、正误差、负误差，掌握修正公式和步骤。</li>
+          <li><strong>读数方法：</strong>分步指引 &mdash; 读 MSR、找 VSR 对齐线、算 TR，以及避开常见错误。</li>
+        </ul>
+        <p>点击网格里的任意卡片，下方会显示它对应的详细信息面板。</p>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="guide-section-num">5</span> 练习读数</summary>
+      <div class="guide-content">
+        <p><strong>练习模式</strong>提供两种并排的练法，开始其中一个就会结束另一个，所以任何时候只有一个目标：</p>
+        <ul>
+          <li><strong>播放 / 暂停</strong> &mdash; 进入练习模式时卡尺已经停在某个随机开口上，可以直接读刻度、输入总读数。<em>播放</em>让它动起来，<em>暂停</em>会在另一个随机开口上停住，想换一题就再摇一次。</li>
+          <li><strong>测量工件</strong> &mdash; 随机把一个工件放进量爪。拖动游标量爪（或按 <kbd>&larr;</kbd>&nbsp;/&nbsp;<kbd>&rarr;</kbd>）直到它停在工件上，然后读刻度。<em>判分</em>按钮在量爪真正接触工件之前一直是灰的，所以你想跳过测量直接猜是不行的。</li>
+        </ul>
+        <p>点<em>判分</em>核对答案 &mdash; 即时反馈配合音效告诉你是否读对，并在这之后才揭示工件的真实尺寸。<em>换一题</em>会把量爪停到另一个随机开口上，并把控制权交回播放练法，换好即可直接作答。右上角会显示累计得分。</p>
+        <p><strong>测验模式：</strong>共 5 道题，其中<strong>至少两道一定是测量工件的任务</strong>，其余题目会直接给你摆好量爪让你读。遇到工件题时，工件会以量爪张开的姿态出现，<em>提交</em>在你把它合拢之前是锁住的。5 道题做完后，结果面板会给出得分、星级和逐题明细。想练多少遍都行；公制英制、有没有零误差都能测验。</p>
+        <p><strong>在分数英制卡尺上作答。</strong>选中 <strong>1/128&Prime;</strong> 档时，答案框接受分数，因为这正是这种量具的读法：可以输入 <code>1 43/128</code>、<code>1-43/128</code> 或 <code>43/128</code>。没有约分也判对 &mdash; 对 1-1/4&Prime; 来说 <code>1 32/128</code> 算正确 &mdash; 写小数也接受，只是那不是刻度本身的写法。</p>
+        <p><strong>不同模式用不同工件。</strong>练习和测验使用的工件与模拟模式里的是两套，所以见过的尺寸不能靠回忆，必须重新测量。</p>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="guide-section-num">6</span> 读懂这个读数</summary>
+      <div class="guide-content">
+        <p>游标卡尺的读数涉及三个量：</p>
+        <ul>
+          <li><strong>MSR（主尺读数）：</strong>公制下是游标零线左边最后一条整毫米刻线；英制下是左边最后一条 0.025&Prime; 刻线 &mdash; 分数英制卡尺上则是最后一条 1/16&Prime; 刻线。</li>
+          <li><strong>VSR（游标读数）：</strong>与任意一条主尺刻线完全对齐的那一格游标分度号（模拟器里显示为金色刻度）。</li>
+          <li><strong>LC（最小分度值）：</strong>公制为 0.02 mm、0.05 mm 或 0.1 mm；英制为 0.001&Prime; 或 1/128&Prime;。</li>
+        </ul>
+        <p><strong>公制举例：</strong>MSR = 23 mm，VSR = 9，LC = 0.05 mm &rarr; TR = 23 + (9 &times; 0.05) = <strong>23.45 mm</strong>。</p>
+        <p><strong>分数英制举例：</strong>MSR = 1 5/16&Prime;，VSR = 3，LC = 1/128&Prime; &rarr; TR = 1 40/128 + 3/128 = <strong>1 43/128&Prime;</strong>。</p>
+        <p><strong>小数英制举例：</strong>MSR = 0.900&Prime;，VSR = 23，LC = 0.001&Prime; &rarr; TR = 0.900 + (23 &times; 0.001) = <strong>0.923&Prime;</strong>。</p>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="guide-section-num">7</span> 公制与英制卡尺</summary>
+      <div class="guide-content">
+        <p>本模拟器内含两把完全独立的量具：</p>
+        <ul>
+          <li><strong>公制（SI）：</strong>主尺按毫米分度（0&ndash;100 mm），游标 20、50 或 10 分度。用分度值按钮切换精度。</li>
+          <li><strong>英制 &mdash; 小数（0.001&Prime;）：</strong>主尺按四十分之一英寸分度（0&ndash;4&Prime;），每格 0.025&Prime;。游标 25 分度对应主尺 24 格（0.600&Prime;）。LC = 0.025&Prime; &divide; 25 = 0.001&Prime;。</li>
+          <li><strong>英制 &mdash; 分数（1/128&Prime;）：</strong>主尺按十六分之一英寸分度，刻线高度分档 1&Prime; &gt; 1/2&Prime; &gt; 1/4&Prime; &gt; 1/8&Prime; &gt; 1/16&Prime;。游标 8 分度对应主尺 7 格（7/16&Prime;）。LC = 1/16&Prime; &divide; 8 = 1/128&Prime;，而且每一处读数 &mdash; 测量值、MSR、零误差、答案框 &mdash; 都以约分后的分数显示，例如 1-43/128&Prime;。</li>
+        </ul>
+        <p>用控制栏里的 <strong>公制 / 英制</strong> 按钮切换。整个刻度、刻线、数字、读数、公式以及练习/测验的答案格式都会自动跟着变。</p>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="guide-section-num">8</span> 零误差模拟</summary>
+      <div class="guide-content">
+        <p>工具栏里的<strong>零误差</strong>默认是关闭的。把它切到<em>开</em>，就能模拟一把没有校准好的卡尺，然后用 <strong>− / +</strong> 步进器把误差设到<strong>&plusmn;5 个最小分度</strong>。</p>
+        <ul>
+          <li>模拟器把画布上的读数当作<strong>观测值</strong>（学生从刻度上读到的值）。黄色的<em>零误差</em>卡片显示校准偏差；绿色的<em>修正后</em>卡片显示真实测量值：<strong>修正后 = 观测值 &minus; 零误差</strong>。</li>
+          <li><strong>正零误差</strong>时（例如 0.02 LC 下 +0.06&nbsp;mm），量爪闭合时游标零线位于主尺零线的<em>右侧</em> &mdash; 游标第 3 格与主尺某条线对齐。</li>
+          <li><strong>负零误差</strong>时（例如 &minus;0.06&nbsp;mm），游标零线在主尺零线的<em>左侧</em> &mdash; 游标第 47 格（50 分度刻度上）对齐。按惯例记为 &minus;(50&minus;47)&nbsp;&times;&nbsp;LC。</li>
+          <li>在<strong>练习</strong>和<strong>测验</strong>模式下，每道题都会随机生成一个零误差：从刻度读出观测值，减去显示的零误差，填入修正后的（真实）值。</li>
+          <li>随时把开关切回<em>关</em>，就能回到一把完全校准好的量具。</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="guide-section-num">9</span> 技巧与最佳实践</summary>
+      <div class="guide-content">
+        <ul>
+          <li>测量前永远先查<strong>零误差</strong> &mdash; 把量爪完全闭合，确认读数是精确的 0.00 mm（或 0.000&Prime;）。</li>
+          <li>用<strong>放大</strong>功能准确找出游标对齐线 &mdash; 要找的是能与主尺连成一条直线的那一条。</li>
+          <li>真实车间里，读数要正对刻度垂直俯视，避免<strong>视差</strong>。</li>
+          <li>把各种精度档<strong>和两种单位制</strong>都练一遍，以应对考试和工作中遇到的不同类型卡尺。</li>
+          <li>做练习或测验之前，先用<strong>浏览模式</strong>复习理论和公式。</li>
+          <li>画布下方的<strong>读数区</strong>可以让你不用滚到信息行，就能一眼看到当前读数、LC、MSR 和 VSR。</li>
+        </ul>
+      </div>
+    </details>
+  </section>

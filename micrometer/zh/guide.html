@@ -1,0 +1,187 @@
+  <!-- ═══ 使用指南 — 内联可折叠 ═══════ -->
+  <section class="user-guide" id="user-guide">
+    <div class="user-guide-title">
+      <span class="guide-icon-badge" aria-hidden="true">&#128214;</span>
+      使用指南 &mdash; 螺旋测微器（千分尺）模拟器
+    </div>
+
+    <details>
+      <summary><span class="guide-section-num">1</span> 概述</summary>
+      <div class="guide-content">
+        <p>这个<strong>螺旋测微器（千分尺）模拟器</strong>是一个免费在线工具，用来练习千分尺的读数。它同时支持<strong>公制（毫米）</strong>和<strong>英制（英寸）</strong>两套完全独立的量具。公制模式下最小分度值为 <strong>0.01 mm</strong>，微分筒 50 分度；英制模式是标准的 <strong>0.001&Prime;</strong> 千分尺，微分筒 25 分度。四种模式 &mdash; <strong>模拟</strong>、<strong>浏览</strong>、<strong>练习</strong>、<strong>测验</strong> &mdash; 带你从理论走向熟练的动手测量。</p>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="guide-section-num">2</span> 设定与对零</summary>
+      <div class="guide-content">
+        <img src="ug-hero.webp" alt="螺旋测微器模拟器界面预览" width="300" height="92" loading="lazy"
+             style="float:right;max-width:150px;height:auto;margin:0 0 8px 12px;border-radius:6px;border:1px solid var(--border,#2a3050);">
+        <img src="ug-reading.webp" alt="模拟模式下的千分尺，主尺与微分筒刻度都可见" width="300" height="80" loading="lazy"
+             style="float:right;max-width:150px;height:auto;margin:0 0 8px 12px;border-radius:6px;border:1px solid var(--border,#2a3050);">
+        <p>模拟器打开时处于<strong>模拟</strong>模式、公制单位，量具停在一个默认读数上。开始时可以这样做：</p>
+        <ul>
+          <li><strong>拖动微分筒</strong>左右转动即可改变测量值。方向键做微小调整，Shift+方向键则走整整一圈（0.5 mm / 0.025&Prime;）。</li>
+          <li>留意<strong>信息行</strong>的实时更新 &mdash; 它显示读数、MSR、CSR、LC 以及完整的 TR 计算过程。</li>
+          <li>切换 <strong>公制 / 英制</strong> 可在公制千分尺（0&ndash;15 mm）和英制千分尺（0&ndash;1&Prime;）之间切换，整个刻度会按正确的分度重绘。</li>
+          <li>用<strong>放大</strong>按钮（或按 Z 键）放大微分筒与套筒相交处的读数区域。</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="guide-section-num">3</span> 读数</summary>
+      <div class="guide-content">
+        <img src="ug-new.webp" alt="按下换一题后千分尺停在一个新的随机读数上" width="300" height="80" loading="lazy"
+             style="float:right;max-width:150px;height:auto;margin:0 0 8px 12px;border-radius:6px;border:1px solid var(--border,#2a3050);">
+        <p>模拟模式下千分尺完全听你指挥。转动微分筒时，观察套筒是怎样露出或盖住刻线的，以及微分筒上的分度怎样与基准线对齐。拖动时有轻微的咔嗒音效反馈，公式面板会实时显示逐步计算过程。先用这个模式建立信心，再进入练习。</p>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="guide-section-num">3b</span> 测量真实工件</summary>
+      <div class="guide-content">
+        <p>在模拟模式下，画布右下角的<strong>测量工件</strong>按钮会把一个真实工件放进测砧与测微螺杆之间。共有八个部件可选 &mdash; 钢丝、薄板条、1/4&Prime; 轴承钢球、定位销、钻头柄部、M5 六角螺母、塞尺片和黄铜棒。</p>
+        <ol>
+          <li>选一个工件。它靠在<strong>测砧</strong>上，测微螺杆完全退开，就像真实测量开始时那样。</li>
+          <li>向左拖动微分筒（或按 <kbd>&larr;</kbd>，或点<em>合拢到工件</em>）。测微螺杆会<strong>稳稳停在工件上</strong> &mdash; 无论怎么推都穿不过去。</li>
+          <li>接触时工件上出现绿色接触标记，伴随一声轻响，下方的尺寸标注线显示出真实尺寸。</li>
+          <li>现在照常读刻度：MSR + (CSR &times; LC)。</li>
+        </ol>
+        <p><strong>用 1/4&Prime; 钢球试两次。</strong>它正好是 6.35 mm，所以公制千分尺读 6.35 mm，英制千分尺读到干净的 0.250&Prime; &mdash; 同一个零件、同样的间隙，两把量具。其他部件大多没有这么整齐：1.62 mm 的钢丝是 0.0638&Prime;，而 0.001&Prime; 的千分尺只能分辨到 0.064&Prime;。这个差值就是<strong>分辨力极限</strong>，工件信息栏会写清楚。</p>
+        <p>工件装夹状态下打开<strong>零误差</strong>：测微螺杆仍然停在真实尺寸上，但刻度会一直偏大或偏小，直到你做修正 &mdash; 这正是毁掉真实测量的陷阱。</p>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="guide-section-num">3c</span> 「演示读数」&mdash; 引导式读数</summary>
+      <div class="guide-content">
+        <img src="screenshot-4.webp" alt="演示读数功能在千分尺上运行" width="700" height="187" loading="lazy"
+             style="float:right;max-width:190px;height:auto;margin:0 0 8px 12px;border-radius:6px;border:1px solid var(--border,#2a3050);">
+        <p>量具右下角圆形播放按钮就在<em>测量工件</em>旁边，点击后会针对当前量具上的读数开始一步步讲解。每一支箭头、每一处高亮、每一次计数都直接画在刻度上，每个数字都来自读数格所用的同一套计算。</p>
+        <ul>
+          <li><strong>第 1 步 &mdash; 主尺读数。</strong>一条测量线沿套筒长到微分筒前缘，箭头标出它露出的最后一条刻度。字幕会点出你当前这套螺杆最容易踩的坑 &mdash; 0.5&nbsp;mm 螺杆上的半毫米刻线，或英制下的 0.025&Prime; 分度。</li>
+          <li><strong>第 2 步 &mdash; 在基准线上找那一格。</strong>基准线会横贯微分筒延伸出去，两侧相邻的刻线被逐条排除，让你看到只有一格与它齐平。</li>
+          <li><strong>第 3 步 &mdash; 读微分筒。</strong>计数从最近的一个<em>标有数字</em>的刻度出发，再往基准线数最后几格 &mdash; 这才是量具真实的读法，而不是从零开始数。</li>
+          <li><strong>第 4 步 &mdash; 总读数</strong>，一行一行揭示；在深度和内径量具上还会带上测杆或量爪宽度那一项。</li>
+          <li><strong>第 5 步 &mdash; 零误差</strong>，只在确实存在时才出现。</li>
+        </ul>
+        <p>在<strong>深度</strong>或<strong>内径</strong>千分尺上，讲解会跟随反向的套筒：数值是微分筒<em>盖住</em>的最后一个数字，箭头指向微分筒边缘下方的那条刻线。</p>
+        <p><strong>操作：</strong><kbd>空格</kbd>播放/暂停，<kbd>&rarr;</kbd>/<kbd>&larr;</kbd> 前后翻步，<kbd>Esc</kbd> 关闭，也可以用画布上的四个按钮。转动微分筒、改变螺杆、单位或量具类型、或加载工件都会结束演示 &mdash; 整套步骤是为开始演示时量具上的那个读数准备的。</p>
+        <p>在<strong>测验</strong>模式下不提供该功能；<strong>练习</strong>模式下则要等你交卷判分之后才会有。</p>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="guide-section-num">4</span> 刻度是怎么工作的</summary>
+      <div class="guide-content">
+        <img src="ug-zoom.webp" alt="微分筒与套筒相交处的放大视图" width="300" height="80" loading="lazy"
+             style="float:right;max-width:150px;height:auto;margin:0 0 8px 12px;border-radius:6px;border:1px solid var(--border,#2a3050);">
+        <p>浏览模式是一座千分尺知识的参考库，分为五个分类：</p>
+        <ul>
+          <li><strong>部件与结构：</strong>一张可交互的标注图。把鼠标移到（或点击）十个编号标注中的任意一个 &mdash; U 形尺架、测砧、测微螺杆、锁紧螺母、固定套筒、主尺、基准线、微分筒、微分刻度、棘轮止动器 &mdash; 图上对应部件会高亮，旁边显示它的说明、规格和车间经验。</li>
+          <li><strong>千分尺类型：</strong>外径、内径、深度和数显千分尺 &mdash; 了解它们的区别、量程和用途。</li>
+          <li><strong>最小分度值：</strong>公制（0.01 mm）和英制（0.001&Prime;）的算例，附 LC 公式。</li>
+          <li><strong>零误差：</strong>无误差、正误差、负误差，以及修正公式和步骤。</li>
+          <li><strong>读数方法：</strong>分步指引 &mdash; 读 MSR、找 CSR 对齐线、算 TR，以及避开常见错误。</li>
+        </ul>
+        <p>点击网格里的任意卡片，下方会显示它对应的详细信息面板。</p>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="guide-section-num">5</span> 练习读数</summary>
+      <div class="guide-content">
+        <p><strong>练习模式</strong>提供两种并排的练法，开始其中一个就会结束另一个，所以任何时候只有一个目标：</p>
+        <ul>
+          <li><strong>播放 / 暂停</strong> &mdash; 进入练习模式时千分尺已经停在某个随机读数上，可以直接读刻度、输入总读数。<em>播放</em>让它动起来，<em>暂停</em>会在另一个随机读数上停住，想换一题就再摇一次。</li>
+          <li><strong>测量工件</strong> &mdash; 随机把一个工件放到测砧上。把测微螺杆合拢到它上面（拖动、按 <kbd>&larr;</kbd>，或点<em>合拢到工件</em>），然后读刻度。<em>判分</em>按钮在测量面真正接触之前一直是灰的，所以测量这一步没法跳过。</li>
+        </ul>
+        <p>点<em>判分</em>后即时反馈配合音效，并在这之后才揭示工件的真实尺寸。<em>换一题</em>会把测微器停到另一个随机读数上，并把控制权交回播放练法，换好即可直接作答。右上角会显示累计得分。</p>
+        <p><strong>测验模式：</strong>共 5 道题，其中<strong>至少两道一定是测量工件的任务</strong>，其余题目会直接摆好测微螺杆让你读。遇到工件题时，工件会以测微螺杆退开的姿态出现，<em>提交</em>在你把它合拢之前是锁住的。5 道题做完后，结果面板会给出得分、星级和逐题明细。公制英制、有没有零误差都能测验。</p>
+        <p><strong>不同模式用不同工件。</strong>练习和测验使用的工件与模拟模式里的是两套，所以见过的尺寸不能靠回忆，必须重新测量。</p>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="guide-section-num">6</span> 读懂这个读数</summary>
+      <div class="guide-content">
+        <p>千分尺的读数由两部分组成：</p>
+        <ul>
+          <li><strong>MSR（主尺读数）：</strong>公制下数出套筒上被露出的整毫米和半毫米刻线；英制下数 0.025&Prime; 刻线。</li>
+          <li><strong>CSR（微分筒读数）：</strong>与基准线对齐的那一格微分筒分度，乘以 LC。</li>
+        </ul>
+        <p><strong>公制举例：</strong>套筒显示 5.5 mm，微分筒读 23 &rarr; TR = 5.5 + (23 &times; 0.01) = <strong>5.73 mm</strong>。</p>
+        <p><strong>英制举例：</strong>套筒显示 0.275&Prime;，微分筒读 14 &rarr; TR = 0.275 + (14 &times; 0.001) = <strong>0.289&Prime;</strong>。</p>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="guide-section-num">7</span> 公制与英制千分尺</summary>
+      <div class="guide-content">
+        <p>本模拟器内含两把完全独立的<em>外径</em>千分尺（公制与英制），另外在 <strong>量具</strong> 按钮上还提供深度和内径千分尺（见&nbsp;7b&ndash;7c）：</p>
+        <ul>
+          <li><strong>公制，0.5&nbsp;mm &times; 50：</strong>螺距 0.5 mm，微分筒 50 分度，LC = 0.01 mm，量程 0&ndash;15 mm。基准线上方是整毫米，下方是半毫米。</li>
+          <li><strong>英制：</strong>螺距 0.025&Prime;，微分筒 25 分度，LC = 0.001&Prime;，量程 0&ndash;1&Prime;。套筒按四十分之一英寸分度。</li>
+        </ul>
+        <p>用 <strong>公制 / 英制</strong> 切换单位。整个刻度、刻线、数字、读数、公式以及练习/测验的答案格式都会自动更新。模拟器装的是车间标准的 <strong>0.5&nbsp;mm&nbsp;&times;&nbsp;50</strong> 公制螺杆，旁边的 <strong>螺杆</strong> 标注就是告诉你装的是哪一套。英制下、以及深度和内径量具下它都会隐藏 &mdash; 那几把量具都建立在这同一套 0.5&nbsp;mm 螺杆上。</p>
+        <p><strong>为什么是 0.5&nbsp;mm 而不是 1&nbsp;mm？</strong>螺距 1&nbsp;mm、100 个分度的千分尺，最小分度值同样是 0.01&nbsp;mm，但 0.5&nbsp;mm &times; 50 才是你手上真正会拿到的那把 &mdash; 也正是会读错的那把。半毫米刻线在基准线<em>下方</em>，漏看它、把一个实测 5.73&nbsp;mm 的零件报成 5.23&nbsp;mm，是公制千分尺最常见的错误。所以模拟器装的是<em>会犯这个错</em>的那套螺杆，而不是不会犯的那套；1&nbsp;mm &times; 100 那把量具在下面的正文里推一遍。</p>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="guide-section-num">7b</span> 深度千分尺模式</summary>
+      <div class="guide-content">
+        <p>把 <strong>量具</strong> 切到 <strong>深度</strong>，模拟器就换成一把深度千分尺 &mdash; 平底座跨在带孔的方块上，测微螺杆推动一根接长杆伸进去。它用的是和
+        外径千分尺<em>同一套螺杆</em>，所以最小分度值仍是 0.01&nbsp;mm（英制 0.001&Prime;），公式仍是 MSR + (CSR &times; LC)。有两处不同：</p>
+        <ul>
+          <li><strong>套筒是反向计数的。</strong>测杆往孔<em>里</em>走，所以微分筒朝底座方向移动，是把套筒<em>盖住</em>而不是露出来。主尺读数就是<strong>微分筒盖住的第一个数字</strong>。按外径千分尺的方式去读，得到的是<em>量程 &minus; 实际值</em>：真实的 6.00&nbsp;mm 会读成 19.00&nbsp;mm。</li>
+          <li><strong>接长杆要加到读数上。</strong>用 <strong>接长杆</strong> 按钮选杆（0&ndash;25、25&ndash;50、50&ndash;75、75&ndash;100&nbsp;mm）。公式卡片会多出一项<em>测杆</em>，读数区显示总深度。</li>
+        </ul>
+        <p><strong>测量特征</strong>（画布上的按钮）会加载六个真实加工特征之一 &mdash; 键槽、沉孔、盲孔、槽、轴承座孔、模具型腔 &mdash; 以<em>剖切</em>方式绘制，能看到测杆伸进空腔、落在腔底。模拟模式下会自动装好合适的接长杆；手动换一根够不到的，量具会告诉你。
+        拖动微分筒时它会跟随指针：<strong>向左拖是让测杆下沉</strong>，向右是退回。</p>
+        <p>深度模式下 <strong>螺杆</strong> 标注会消失 &mdash; 深度千分尺建立在 0.5&nbsp;mm 螺杆上。<strong>练习</strong>和<strong>测验</strong>每一轮都会<em>随机装一根接长杆</em>，所以"写数之前先确认装的是哪根杆"会变成习惯。只报螺杆读数会被判错 &mdash; 而且正好差一根杆的量。</p>
+        <p><strong>浏览 &rarr; 部件与结构</strong>会切换到深度千分尺自己的标注图：底座、基准面、接长杆、锁紧环、套筒、反向的套筒刻度、微分筒、周向刻度和棘轮止动器。</p>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="guide-section-num">7c</span> 内径千分尺模式</summary>
+      <div class="guide-content">
+        <p>把 <strong>量具</strong> 切到 <strong>内径</strong>，得到一把卡尺式内径千分尺 &mdash; 两个硬质合金量爪向外顶住孔壁。同一套螺杆、同样的 0.01&nbsp;mm 最小分度值，而且它同时具备深度千分尺的两个特点：</p>
+        <ul>
+          <li><strong>套筒反向计数</strong>，原因相同，所以主尺读数是微分筒盖住的第一个数字。</li>
+          <li><strong>量爪就是基准。</strong>量爪本身宽 5&nbsp;mm，所以<em>合拢</em>时读数<strong>5.00&nbsp;mm</strong>，不是零 &mdash; 它是一把 5&ndash;30&nbsp;mm 的量具（英制 0.2&ndash;1.2&Prime;）。<strong>量爪宽度</strong> 徽章会标出量程；与深度千分尺的接长杆不同，这不是可选项，因为量爪拆不下来。</li>
+        </ul>
+        <p><strong>测量内孔</strong>会加载六个真实特征之一（剖切绘制）&mdash; 气门导管、槽、轴承座、钢管内孔、校对环规和气缸 &mdash; 你能看着量爪张开到两侧都贴住孔壁。校对环规是有原因的：内径千分尺没法靠合拢来对零，只能用检定过的环规来设定。</p>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="guide-section-num">8</span> 零误差模拟</summary>
+      <div class="guide-content">
+        <img src="ug-zeroerror.webp" alt="开启零误差修正的千分尺，显示观测值与修正值" width="300" height="80" loading="lazy"
+             style="float:right;max-width:150px;height:auto;margin:0 0 8px 12px;border-radius:6px;border:1px solid var(--border,#2a3050);">
+        <p>工具栏里的<strong>零误差</strong>默认是关闭的。把它切到<em>开</em>，就能模拟一把没有校准好的千分尺，然后用 <strong>− / +</strong> 步进器把误差设到<strong>&plusmn;5 个最小分度</strong>（即公制 &plusmn;0.05&nbsp;mm、英制 &plusmn;0.005&Prime;）。</p>
+        <ul>
+          <li>模拟器把画布上的读数当作<strong>观测值</strong>。黄色的<em>零误差</em>卡片显示校准偏差；绿色的<em>修正后</em>卡片显示真实测量值：<strong>修正后 = 观测值 &minus; 零误差</strong>。</li>
+          <li>在<strong>练习</strong>和<strong>测验</strong>模式下，每道题都会随机生成一个零误差，所以填入答案之前必须先把它从观测读数里减掉。</li>
+          <li>随时把开关切回<em>关</em>，就能回到一把完全校准好的量具。</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="guide-section-num">9</span> 技巧与最佳实践</summary>
+      <div class="guide-content">
+        <ul>
+          <li>测量前永远先查<strong>零误差</strong> &mdash; 把测微螺杆合拢到测砧上，确认读数是精确的 0.00 mm（或 0.000&Prime;）。</li>
+          <li>真实千分尺上要用<strong>棘轮止动器</strong>来施加一致的测量力。</li>
+          <li>特别留意<strong>半毫米刻线</strong>（公制）或 <strong>0.025&Prime; 刻线</strong>（英制）&mdash; 漏看会差 0.5 mm 或 0.025&Prime;。</li>
+          <li>把<strong>两种单位制</strong>都练一遍，以应对考试和工作中遇到的不同千分尺。</li>
+          <li>做练习或测验之前，先用<strong>浏览模式</strong>复习理论和公式。</li>
+          <li>加载一个<strong>真实工件</strong>（测量工件按钮）并合拢到它上面 &mdash; 感受测微螺杆停在工件上的那个手感，是能迁移到真实量具上的习惯。</li>
+        </ul>
+      </div>
+    </details>
+  </section>

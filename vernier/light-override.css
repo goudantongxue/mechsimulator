@@ -1,0 +1,211 @@
+/* ═══════════════════════════════════════════════════════════════════
+   亮色主题覆盖（原站为纯暗色，这里把整套配色翻转为亮色）
+   + 读数结果折叠面板样式
+   ═══════════════════════════════════════════════════════════════════ */
+
+:root {
+  --bg:        #eceff5;
+  --surface:   #ffffff;
+  --surface2:  #f3f6fb;
+  --border:    #ccd6e5;
+  --accent:    #2563eb;
+  --accent-lo: rgba(37, 99, 235, .12);
+  --green:     #0f8a43;
+  --red:       #cf2f2f;
+  --gold:      #a9761a;
+  --text:      #172033;
+  --text-dim:  #5a6779;
+  /* 单元格强调色：加深，保证白底上的对比度 */
+  --msr:       #0a6e94;
+  --vsr:       #2f7d32;
+  --lc:        #a86100;
+  --muted:     #6b7788;
+}
+
+html { background: var(--bg); }
+
+/* ── 页面标题：亮色渐变（原为浅蓝→浅紫，白底对比不足）──────────── */
+header h1 {
+  background: linear-gradient(120deg, #1d4ed8 0%, #6d28d9 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ── 画布工具按钮：暗底玻璃 → 白底卡片 ─────────────────────────── */.zoom-toggle {
+  background: rgba(255, 255, 255, .94);
+  border-color: #c6d2e4;
+  color: #2c3b52;
+  box-shadow: 0 1px 4px rgba(30, 45, 70, .10);
+}
+.zoom-toggle:hover {
+  background: #ffffff;
+  box-shadow: 0 0 10px rgba(37, 99, 235, .18);
+}
+.zoom-toggle.active {
+  background: rgba(37, 99, 235, .12);
+  border-color: #2563eb;
+  color: #14398f;
+}
+.align-toggle.active,
+.lock-toggle.active {
+  background: rgba(240, 180, 20, .22);
+  border-color: #d3a015;
+  color: #7a5300;
+}
+.align-toggle:not(.active),
+.lock-toggle:not(.active),
+.seg-btn:not(.active) { color: #5a6b85; border-color: #c6d2e4; }
+.seg-btn.active {
+  background: rgba(37, 99, 235, .12);
+  border-color: #2563eb;
+  color: #14398f;
+}
+
+/* ── 拖动提示气泡 ──────────────────────────────────────────────── */
+.drag-hint {
+  background: rgba(255, 255, 255, .95);
+  color: #28374d;
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 8px rgba(30, 45, 70, .12);
+}
+
+/* ── 数字读数：暗色荧光 LCD → 亮色计算器式 LCD ─────────────────── */
+.digital-readout {
+  background: linear-gradient(180deg, #eef4e2 0%, #e1ebd2 100%);
+  border-color: #b7c8a3;
+  box-shadow: inset 0 1px 6px rgba(70, 100, 50, .12), 0 1px 4px rgba(70, 100, 50, .10);
+}
+.dr-label { color: #587544; }
+.dr-value,
+.dr-input {
+  color: #16351c;
+  text-shadow: none;
+  caret-color: #16351c;
+}
+.dr-input::placeholder { color: rgba(22, 53, 28, .26); }
+.dr-unit { color: #4e6b3c; }
+.dr-equiv { color: rgba(22, 53, 28, .60); }
+
+/* ── TR 结果：去掉霓虹光晕 ─────────────────────────────────────── */
+.tr-result { text-shadow: none; }
+.ob-lesson strong { color: #8a5f0d; }
+
+/* ── 测验结果：星级与分数去光晕 ────────────────────────────────── */
+.qr-stars  { color: #d9a300; }
+.qr-score  { text-shadow: none; }
+
+/* ── Play / 播放按钮 ───────────────────────────────────────────── */
+.btn-play {
+  background: #ddf2e3;
+  color: #0b6b36;
+  border: 1px solid #9ed3b1;
+}
+.btn-play:hover { background: #cdebd7; box-shadow: 0 0 12px rgba(15, 138, 67, .16); }
+.btn-play.playing {
+  background: #fbe0e0;
+  color: #b32424;
+  border-color: #e5a5a5;
+}
+@keyframes pulse-red {
+  0%, 100% { box-shadow: 0 0 0 rgba(180, 50, 50, 0); }
+  50%      { box-shadow: 0 0 10px rgba(180, 50, 50, .30); }
+}
+
+/* ── 表格分隔线 / 高亮 ─────────────────────────────────────────── */
+.seo-article td { border-bottom-color: rgba(28, 44, 70, .10); }
+.seo-article th { border-bottom-color: var(--border); }
+
+/* ── 站点标识角标 ─────────────────────────────────────────────── */
+.logo-fixed::after { background: rgba(255, 255, 255, .92); }
+
+/* ── 面板投影（暗色投影在亮底上过重）────────────────────────────── */
+.obj-picker { box-shadow: 0 12px 32px rgba(28, 42, 66, .22); }
+
+/* ── 玻璃/模糊层：暗色半透明 → 亮色半透明 ───────────────────────── */
+.site-nav,
+.obj-bar,
+.quiz-result { color: var(--text); }
+
+/* ══════════════════════════════════════════════════════════════════
+   读数结果显示区：默认隐藏，点击标题展开
+   ══════════════════════════════════════════════════════════════════ */
+.result-collapse { margin: 0 0 6px; }
+
+.result-toggle {
+  width: 100%;
+  display: flex; align-items: center; gap: 10px;
+  padding: 12px 16px;
+  cursor: pointer; text-align: left;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-family: inherit; font-size: 0.9rem;
+  transition: border-color .18s, box-shadow .18s;
+}
+.result-toggle:hover { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-lo); }
+.result-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.rt-chevron {
+  flex: 0 0 auto;
+  width: 0; height: 0;
+  border-left: 7px solid currentColor;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  opacity: .65;
+  transition: transform .22s ease;
+}
+.result-collapse.is-open .rt-chevron { transform: rotate(90deg); }
+
+.rt-title { font-weight: 700; letter-spacing: .01em; }
+.rt-desc  { font-size: 0.76rem; color: var(--text-dim); }
+.rt-state {
+  margin-left: auto;
+  font-size: 0.73rem; font-weight: 700;
+  color: var(--accent);
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  padding: 2px 10px;
+  white-space: nowrap;
+}
+
+.result-panel { margin-top: 12px; }
+.result-panel[hidden] { display: none; }
+
+@media (max-width: 640px) {
+  .rt-desc { display: none; }
+  .result-toggle { padding: 11px 12px; gap: 8px; }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   尺身标注只剩 cm：单个分段按钮要补回整圈圆角与右边框
+   （原样式按 :first-child / :last-child 各削掉一半，
+     只剩一个按钮时四个角会被全部削平）
+   ══════════════════════════════════════════════════════════════════ */
+.seg-group .seg-btn:only-child {
+  border-radius: 8px;
+  border-right-width: 1px;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   读数区单位字号
+   原样式把单位压得很小（桌面 0.62–0.75rem，窄屏 0.56–0.68rem），
+   紧挨着 1.15–2.2rem 的数字，实际看不太清。这里统一放大到一眼可辨，
+   但仍明显小于数字，保持「数字为主、单位附注」的层级不变。
+
+   覆盖四处单位：.dr-unit（测量值）· .rcell-unit（MSR / CSR / LC）
+   · .tr-unit（TR 结果）· .ze-cell-unit（零误差三格）
+   本块必须留在文件末尾：靠级联顺序压过工具样式表里的同名规则。
+   ══════════════════════════════════════════════════════════════════ */
+.dr-unit      { font-size: 0.95rem; }
+.rcell-unit   { font-size: 0.82rem; }
+.tr-unit      { font-size: 0.95rem; }
+.ze-cell-unit { font-size: 0.88rem; }
+
+@media (max-width: 768px) {
+  .dr-unit      { font-size: 0.88rem; }
+  .rcell-unit   { font-size: 0.74rem; }
+  .tr-unit      { font-size: 0.88rem; }
+  .ze-cell-unit { font-size: 0.84rem; }
+}

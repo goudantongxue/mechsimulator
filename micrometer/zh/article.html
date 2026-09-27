@@ -1,0 +1,272 @@
+  <!-- ── 正文技术文章 ── -->
+  <section class="seo-article">
+  <!-- ═══ 作者署名 ═══════ -->
+  <aside class="author-byline" aria-label="关于作者">
+    <a class="byline-photo-link" href="https://mechsimulator.com/about/"><img src="/brand/Naseel_Photo_.JPG" alt="Naseel Ibnu Azeez" width="48" height="48" loading="lazy"></a>
+    <div class="byline-text">
+      <div class="byline-row1">撰写与审校：<a href="https://mechsimulator.com/about/">Naseel Ibnu Azeez</a></div>
+      <div class="byline-row2">机械设计硕士 &middot; 机械工程讲师</div>
+      <div class="byline-row3">参见<a href="https://mechsimulator.com/about/">编辑与审校流程</a></div>
+    </div>
+  </aside>
+
+    <h2>螺旋测微器（千分尺）怎么用 &mdash; 在线读数练习</h2>
+
+    <figure style="float:right;max-width:340px;margin:0 0 14px 18px;text-align:center;">
+      <img src="screenshot.webp?v=2" alt="千分尺模拟器夹住一根定位销，可见 U 形尺架、测砧、测微螺杆、套筒刻度和 50 分度微分筒"
+           width="700" height="187" loading="lazy"
+           style="max-width:100%;height:auto;border-radius:8px;border:1px solid var(--border,#2a3050);">
+      <figcaption style="font-size:0.8rem;color:var(--text-dim,#8b95b3);margin-top:6px;line-height:1.4;">0.5&nbsp;mm&nbsp;&times;&nbsp;50 的千分尺夹住一根 8&nbsp;mm 定位销 &mdash; 读数是 7.98&nbsp;mm，因为真实的销子比公称尺寸小。拖动微分筒推进测微螺杆，最后小半圈交给棘轮。</figcaption>
+    </figure>
+    <p><strong>螺旋测微器（千分尺）</strong>是一种精密量具，用来测量小尺寸长度和直径，<strong>最小分度值 0.01 mm</strong>，广泛用于机加工、质量控制和计量工作。这个免费在线模拟器让你不必拿真量具，就能练习读套筒（固定套筒）刻度和微分筒刻度。</p>
+
+    <h3>分步讲解：千分尺怎么读</h3>
+    <p><strong>第 1 步 &mdash; 主尺读数（MSR）：</strong>读出套筒上被微分筒边缘露出的最后一条整毫米和半毫米刻线。<strong>第 2 步 &mdash; 微分筒读数（CSR）：</strong>读出与套筒上基准线对齐的那一格微分筒分度。<strong>第 3 步 &mdash; 总读数：</strong>套用 <strong>TR = MSR + (CSR × 0.01)</strong> mm。</p>
+
+    <figure style="float:left;max-width:300px;margin:0 18px 14px 0;text-align:center;clear:both;">
+      <img src="screenshot-2.webp" alt="放大的千分尺套筒与微分筒，基准线上方是毫米刻线，下方是半毫米刻线" width="700" height="187" loading="lazy"
+           style="max-width:100%;height:auto;border-radius:8px;border:1px solid var(--border,#2a3050);">
+      <figcaption style="font-size:0.78rem;color:var(--text-dim,#8b95b3);margin-top:6px;line-height:1.4;">放大视图。整毫米在基准线<em>上方</em>，半毫米在<em>下方</em> &mdash; 漏看下面那些刻线就是那个经典的 0.5&nbsp;mm 误读。</figcaption>
+    </figure>
+
+    <h3>螺旋测微器的原理</h3>
+    <p>千分尺利用的是<strong>螺旋原理</strong>：微分筒转一整圈，测微螺杆前进 <strong>0.5 mm</strong>（即螺距）。微分筒刻度上有 50 个分度，所以每格 = 0.5 ÷ 50 = <strong>0.01 mm</strong>，这就是它的最小分度值。</p>
+
+    <h3>螺距 1&nbsp;mm、100 个分度的千分尺，最小分度值是多少？</h3>
+    <p><strong>0.01&nbsp;mm。</strong>最小分度值等于螺距除以微分筒分度数，所以 1&nbsp;mm &divide; 100 = 0.01&nbsp;mm &mdash; 与常见的公制千分尺完全相同，后者靠 0.5&nbsp;mm 螺距 + 50 分度达到同样的结果。微分筒更细并不自动意味着量具更精密；起作用的是这个比值。</p>
+    <p>真正变化的是读数在两套刻度之间<strong>怎么分</strong>。同一个 5.73&nbsp;mm 的零件读作：</p>
+    <table class="spec-table">
+      <tr><th>螺杆</th><th>套筒（MSR）</th><th>微分筒（CSR）</th><th>合计</th></tr>
+      <tr><td>0.5&nbsp;mm 螺距，50 分度</td><td>5.50 mm</td><td>23</td><td>5.73 mm</td></tr>
+      <tr><td>1&nbsp;mm 螺距，100 分度</td><td>5.00 mm</td><td>73</td><td>5.73 mm</td></tr>
+    </table>
+    <p><strong>为什么是 0.5&nbsp;mm 而不是 1&nbsp;mm？</strong>螺距 1&nbsp;mm、100 个分度的千分尺，最小分度值同样是 0.01&nbsp;mm，但 0.5&nbsp;mm &times; 50 才是你手上真正会拿到的那把 &mdash; 也正是会读错的那把。半毫米刻线在基准线<em>下方</em>，漏看它、把一个实测 5.73&nbsp;mm 的零件报成 5.23&nbsp;mm，是公制千分尺最常见的错误。所以模拟器装的是<em>会犯这个错</em>的那套螺杆，而不是不会犯的那套；下面这段就把 1&nbsp;mm &times; 100 那把推一遍。</p>
+    <p>注意 0.5&nbsp;mm 仍是制造标准：更细的螺距让熟练的手在微分筒转过同样角度时更可控，所以你在车间里拿到的千分尺几乎都是 0.5&nbsp;mm&nbsp;&times;&nbsp;50。</p>
+
+    <h3>「演示读数」&mdash; 一步步看着读数是怎么读出来的</h3>
+
+    <figure style="float:right;max-width:300px;margin:0 0 14px 18px;text-align:center;clear:both;">
+      <img src="screenshot-3.webp" alt="演示读数在千分尺上运行，正在核对基准线上方那一格微分筒分度" width="700" height="187" loading="lazy"
+           style="max-width:100%;height:auto;border-radius:8px;border:1px solid var(--border,#2a3050);">
+      <figcaption style="font-size:0.78rem;color:var(--text-dim,#8b95b3);margin-top:6px;line-height:1.4;">第 2 步。基准线横贯微分筒延伸出去，两侧相邻刻线都被检查过 &mdash; 差一格是这把量具最常见的误读。</figcaption>
+    </figure>
+    <figure style="float:left;max-width:300px;margin:0 18px 14px 0;text-align:center;">
+      <img src="screenshot-4.webp" alt="演示读数在千分尺上给出总读数" width="700" height="187" loading="lazy"
+           style="max-width:100%;height:auto;border-radius:8px;border:1px solid var(--border,#2a3050);">
+      <figcaption style="font-size:0.78rem;color:var(--text-dim,#8b95b3);margin-top:6px;line-height:1.4;">读数完成：套筒 MSR&nbsp;=&nbsp;7.50，微分筒第&nbsp;48&nbsp;格，TR&nbsp;=&nbsp;7.50&nbsp;+&nbsp;(48&nbsp;&times;&nbsp;0.01)&nbsp;=&nbsp;7.98&nbsp;mm。</figcaption>
+    </figure>
+
+    <p>点一下<strong>演示读数</strong> &mdash; 量具右下角的圆形播放按钮 &mdash; 模拟器会拿千分尺上当前的读数，在金属刻度本身上一步步推导给你看。没有一个数字来自侧边面板；箭头、延伸的基准线、逐格累加的计数，全都画在你正在学着读的那套刻度上，而且每个数字都来自读数格所用的同一套计算。</p>
+
+    <ol>
+      <li><strong>主尺读数。</strong>一条测量线沿套筒长到微分筒前缘，红色指示线标出这条边缘，箭头落在它露出的最后一条刻度上。字幕会点出你手上这套量具最容易踩的坑：0.5&nbsp;mm 螺杆上它会提醒你基准线<em>下方</em>那些刻线是半毫米；英制下它会指向 0.025&Prime; 的套筒分度。</li>
+      <li><strong>在基准线上找那一格。</strong>基准线横贯微分筒端面延伸出去，两侧的分度被逐条试探 &mdash; 偏上、再偏上、齐平、偏下。差一格是千分尺最常见的错误，唯一的解药就是亲眼看到相邻格被排除掉。</li>
+      <li><strong>读微分筒。</strong>千分尺上没人会数到 48，讲解也不这么做：它从最近的一个<em>标有数字</em>的刻度出发，往基准线方向数最后几格，一格一个最小分度值地显示累加值。</li>
+      <li><strong>总读数。</strong>TR 卡片按你书写时会用的顺序，一行一行揭示 &mdash; 在深度和内径量具上还包括测杆或量爪宽度那一项。</li>
+      <li><strong>零误差</strong> &mdash; 只在千分尺确实存在时才显示。</li>
+    </ol>
+
+    <p>三种螺杆、三种量具都支持。在<strong>深度</strong>或<strong>内径</strong>千分尺上，套筒是反向标注的，而且读数越大微分筒把套筒<em>盖住</em>得越多，所以讲解会指向微分筒已经盖住的第一个刻度并说明这一点 &mdash; 这恰恰是学生最容易搞反的那条读数规则。</p>
+
+    <p>演示过程中 MSR 和 CSR 两个格子一开始是<strong>空的</strong>，随着推导才填进去，所以动画正在走向答案时，最终答案绝不会已经摆在屏幕上。<kbd>空格</kbd>播放/暂停，<kbd>&rarr;</kbd> 和 <kbd>&larr;</kbd> 前后翻步，<kbd>Esc</kbd> 关闭。测验模式下不提供；练习模式下要等交卷判分之后才有。</p>
+
+    <h3>英制千分尺怎么读（0.001&Prime;）</h3>
+    <p>切换控制栏里的 <strong>公制 / 英制</strong>，量具就变成一把标准的 <strong>0&ndash;1&Prime; 外径千分尺</strong> &mdash; 美国、加拿大和菲律宾车间普遍使用的那一把。机构还是同一套螺杆，只是切成了不同的螺距：</p>
+    <div style="overflow-x:auto;max-width:100%"><table class="snippet-table" style="min-width:460px">
+      <thead><tr><th></th><th>公制（0.5&nbsp;mm）</th><th>英制（40&nbsp;TPI）</th></tr></thead>
+      <tbody>
+        <tr><td>螺距</td><td>每转 0.5&nbsp;mm</td><td>每转 <strong>0.025&Prime;</strong>（每英寸 40 牙）</td></tr>
+        <tr><td>微分筒分度数</td><td>50</td><td><strong>25</strong></td></tr>
+        <tr><td>最小分度值</td><td>0.5 &divide; 50 = <strong>0.01&nbsp;mm</strong></td><td>0.025 &divide; 25 = <strong>0.001&Prime;</strong></td></tr>
+        <tr><td>套筒分度</td><td>0.5&nbsp;mm 刻线</td><td>每英寸 40 格，每格 0.025&Prime;</td></tr>
+        <tr><td>量程</td><td>0&ndash;25&nbsp;mm</td><td>0&ndash;1&Prime;</td></tr>
+      </tbody>
+    </table></div>
+    <p>最小分度值是<strong>推出来的，不是背下来的</strong>：螺距除以微分筒分度数，两种单位制都一样。0.001&Prime; 约合 0.025&nbsp;mm，所以英制千分尺比 0.01&nbsp;mm 的公制量具大约<em>粗两倍半</em> &mdash; 把公差写成千分之一英寸、当成等价表达之前，这一点值得先弄清楚。</p>
+
+    <h4>怎么读 &mdash; 三个数相加</h4>
+    <ol>
+      <li><strong>套筒上最大的标注数字。</strong>套筒按十分之一英寸标 0 到 9，所以看到 <em>2</em> 就是 <strong>0.200&Prime;</strong>。</li>
+      <li><strong>它之后多出来的 0.025&Prime; 刻线。</strong>再多露出三条就是 3 &times; 0.025 = <strong>0.075&Prime;</strong>。</li>
+      <li><strong>基准线上的微分筒格数</strong> &times; 0.001&Prime;。微分筒在 12 就是 <strong>0.012&Prime;</strong>。</li>
+    </ol>
+    <p>0.200 + 0.075 + 0.012 = <strong>0.287&Prime;</strong>。英制最常见的失误是少算整一圈 &mdash; 读成 0.262&Prime;，因为有一条 0.025&Prime; 的套筒刻线还藏在微分筒底下。练习和测验模式会刻意在这个界限两侧出题。</p>
+
+    <h3>深度千分尺怎么读 &mdash; 刻度是反着走的</h3>
+    <p>把 <strong>量具</strong> 切到 <strong>深度</strong>，模拟器就换成一把深度千分尺：平底座跨在孔上，螺杆把一根可更换的测杆推进去。螺杆与外径千分尺<em>完全相同</em> &mdash; 0.5&nbsp;mm 螺距配 50 分度，或 40&nbsp;TPI 配 25 分度 &mdash; 所以最小分度值同样是 <strong>0.01&nbsp;mm</strong>（或 0.001&Prime;），算式也不变。有两处不同，而且两条都容易让人栽跟头。</p>
+
+    <h4>1. 套筒是反向标注的</h4>
+    <p>外径千分尺读数变大时，微分筒是<em>远离</em>尺架移动的，所以它把套筒<strong>露出来</strong>。深度千分尺的螺杆把测杆<em>推进</em>孔里，于是微分筒朝底座方向移动，反而是把套筒<strong>盖住</strong>。因此套筒是从头部向微分筒方向刻的，零位在完全退回处，而且：</p>
+    <p style="font-size:1.05rem"><strong>主尺读数就是微分筒<em>盖住</em>的第一个数字 &mdash; 不是露出来的最后一个。</strong></p>
+    <p>按熟悉的方式读深度千分尺，得到的不是"稍微有点错"，而是<strong>量程 &minus; 实际值</strong>。25&nbsp;mm 的量具上，真实深度 <strong>6.00&nbsp;mm</strong> 会读成 <strong>19.00&nbsp;mm</strong> &mdash; 差 13&nbsp;mm，而刻度上看起来毫无破绽。在本模拟器里把同一个数值分别在两把量具上设出来，就能看到套筒标注反向。</p>
+
+    <h4>2. 接长杆要加到读数上</h4>
+    <p>螺杆只有 25&nbsp;mm（或 1&nbsp;英寸）行程。超出部分全靠更换接长杆，而<strong>接长杆的基准值要加到刻度读数上</strong>：</p>
+    <div style="overflow-x:auto;max-width:100%"><table class="snippet-table" style="min-width:460px">
+      <thead><tr><th>装哪根杆</th><th>公制量程</th><th>英制量程</th><th>加到刻度读数上</th></tr></thead>
+      <tbody>
+        <tr><td>基础杆</td><td>0&ndash;25&nbsp;mm</td><td>0&ndash;1&Prime;</td><td>0</td></tr>
+        <tr><td>第 2 根</td><td>25&ndash;50&nbsp;mm</td><td>1&ndash;2&Prime;</td><td><strong>25&nbsp;mm</strong> / 1&Prime;</td></tr>
+        <tr><td>第 3 根</td><td>50&ndash;75&nbsp;mm</td><td>2&ndash;3&Prime;</td><td><strong>50&nbsp;mm</strong> / 2&Prime;</td></tr>
+        <tr><td>第 4 根</td><td>75&ndash;100&nbsp;mm</td><td>3&ndash;4&Prime;</td><td><strong>75&nbsp;mm</strong> / 3&Prime;</td></tr>
+      </tbody>
+    </table></div>
+
+    <h4>算例 &mdash; 装的是 25&ndash;50&nbsp;mm 的接长杆</h4>
+    <ol>
+      <li><strong>先看装的是哪根杆。</strong>装的是 25&ndash;50&nbsp;mm 杆，所以基准值是 <strong>25.00&nbsp;mm</strong>。</li>
+      <li><strong>主尺</strong> &mdash; 微分筒边缘盖住的第一个数字：<strong>11.50&nbsp;mm</strong>。</li>
+      <li><strong>基准线上的微分筒格数</strong>：36 &times; 0.01 = <strong>0.36&nbsp;mm</strong>。</li>
+    </ol>
+    <p><strong>套筒永远不会重新编号。</strong>不管装哪根杆，它都是 0&ndash;25&nbsp;mm 分度 &mdash; 量程由<em>接长杆</em>承担，并冲印在杆身上，正如这个配件卖出时的名字（"深度千分尺接长杆，25&ndash;50&nbsp;mm"）。所以要你自己做加法，也正是本模拟器在图上把所装杆的量程刻在杆上、而不是去挪动刻度的原因。</p>
+    <p>25.00 + 11.50 + 0.36 = <strong>36.86&nbsp;mm</strong>。忘了第 1 步，你会报出 11.86&nbsp;mm &mdash; 精确到百分位，却整整错了一根杆。练习和测验模式每一轮都会<strong>随机装一根杆</strong>，正是为了让"先确认装的是哪根杆"变成习惯而不是事后想起。</p>
+
+    <h4>深度千分尺的最小分度值是多少？</h4>
+    <p>标准公制深度千分尺是 <strong>0.01&nbsp;mm</strong>，英制（40&nbsp;TPI）是 <strong>0.001&Prime;</strong> &mdash; 与外径千分尺相同，因为它们是同一套螺杆。最小分度值永远是螺距 &divide; 微分筒分度数：0.5 &divide; 50 = 0.01&nbsp;mm，0.025 &divide; 25 = 0.001&Prime;。更换接长杆改变的是<em>量程</em>，绝不是最小分度值。</p>
+
+    <h4>测量真实特征 &mdash; 以剖切方式呈现</h4>
+    <p>在画布上打开<strong>测量特征</strong>，模拟器会加载一个真实加工特征，以<strong>剖面图</strong>绘制，让你看着测杆伸进去、落到腔底 &mdash; 这是深度千分尺的照片永远无法展示的东西：</p>
+    <div style="overflow-x:auto;max-width:100%"><table class="snippet-table" style="min-width:520px">
+      <thead><tr><th>特征</th><th>深度</th><th>需要的接长杆</th><th>这个数字从哪来</th></tr></thead>
+      <tbody>
+        <tr><td>25&nbsp;mm 轴上的键槽</td><td><strong>4.00&nbsp;mm</strong></td><td>0&ndash;25&nbsp;mm</td><td>25&nbsp;mm 轴按 DIN 6885 的键槽深度</td></tr>
+        <tr><td>沉孔（M8 内六角）</td><td><strong>9.00&nbsp;mm</strong></td><td>0&ndash;25&nbsp;mm</td><td>ISO 4762 头高 8&nbsp;mm，沉孔铣到 9&nbsp;mm 把它埋平</td></tr>
+        <tr><td>板上的盲孔</td><td><strong>12.50&nbsp;mm</strong></td><td>0&ndash;25&nbsp;mm</td><td>到平面的深度，不是到钻尖</td></tr>
+        <tr><td>夹具板上的槽</td><td><strong>18.00&nbsp;mm</strong></td><td>0&ndash;25&nbsp;mm</td><td>铣出的槽</td></tr>
+        <tr><td>轴承座孔</td><td><strong>32.00&nbsp;mm</strong></td><td>25&ndash;50&nbsp;mm</td><td>6205 轴承座到台阶的深度</td></tr>
+        <tr><td>模具块上的型腔</td><td><strong>58.00&nbsp;mm</strong></td><td>50&ndash;75&nbsp;mm</td><td>粗加工过的模具型腔</td></tr>
+      </tbody>
+    </table></div>
+    <p>最后两个刻意做得比一个螺杆行程更深。装上够不到的杆，量具会直接告诉你并指出该换哪根 &mdash; <strong>选杆本身就是使用这把量具的一部分</strong>，不是一个可以先跳过再说的设置。测杆触底时，读数就是特征深度本身。</p>
+
+    <h4>让深度读数可靠的三个习惯</h4>
+    <ul>
+      <li><strong>每次换杆后都在平板上重新对零。</strong>接长杆没完全就位，会给之后每个读数带来一个固定误差。</li>
+      <li><strong>底座两端都要压紧。</strong>一端翘起读数就偏浅，而且隔着尺架你感觉不到接触，不像外径千分尺那样有手感。</li>
+      <li><strong>最后一定要用棘轮收尾。</strong>用微分筒把测杆压下去，会把底座顶起来，还会磕伤研磨过的测杆端头。</li>
+    </ul>
+
+    <h3>内径千分尺怎么读 &mdash; 量爪不代表零</h3>
+    <p>把 <strong>量具</strong> 切到 <strong>内径</strong>，模拟器换成一把卡尺式内径千分尺：两个硬质合金量爪<em>向外</em>顶住孔壁。这是同一把量具的第三种型式 &mdash; 同一套 0.5&nbsp;mm 螺杆、同样的 <strong>0.01&nbsp;mm</strong> 最小分度值 &mdash; 而且它同时具备深度千分尺<em>两处</em>与外径千分尺不同的地方。</p>
+
+    <h4>1. 套筒又是反向的</h4>
+    <p>量爪张开时，测微螺杆朝远离读数端的方向伸出，于是微分筒向量爪一侧移动、把套筒<strong>盖住</strong>。主尺读数同样是<strong>微分筒盖住的第一个数字</strong>。按外径千分尺的方式去读，得到的是<em>量程 &minus; 实际值</em>：螺杆设定 12.00&nbsp;mm，会读成 <strong>13.00&nbsp;mm</strong>。</p>
+
+    <h4>2. 合拢的内径千分尺读 5&nbsp;mm，不是零</h4>
+    <p>这是这种型式独有的陷阱。<strong>量爪本身有宽度。</strong>完全合拢时量具仍然读 <strong>5.00&nbsp;mm</strong>，因为两个测量面本来就相距这么远。所以标准公制内径千分尺是一把 <strong>5&ndash;30&nbsp;mm</strong> 的量具 &mdash; 5&nbsp;mm 的量爪加上 25&nbsp;mm 的螺杆行程 &mdash; 英制对应的是 <strong>0.2&ndash;1.2&Prime;</strong>。</p>
+    <div style="overflow-x:auto;max-width:100%"><table class="snippet-table" style="min-width:520px">
+      <thead><tr><th>量具</th><th>基准项</th><th>螺杆行程</th><th>可读范围</th><th>最小分度值</th></tr></thead>
+      <tbody>
+        <tr><td>外径千分尺</td><td>无</td><td>0&ndash;25&nbsp;mm</td><td><strong>0&ndash;25&nbsp;mm</strong></td><td>0.01&nbsp;mm</td></tr>
+        <tr><td>深度千分尺</td><td>接长杆，0&ndash;75&nbsp;mm（可换）</td><td>25&nbsp;mm</td><td><strong>0&ndash;100&nbsp;mm</strong></td><td>0.01&nbsp;mm</td></tr>
+        <tr><td>内径千分尺</td><td>量爪，5&nbsp;mm（固定）</td><td>25&nbsp;mm</td><td><strong>5&ndash;30&nbsp;mm</strong></td><td>0.01&nbsp;mm</td></tr>
+      </tbody>
+    </table></div>
+    <p>三种都是把某个<strong>基准项</strong>加到刻度读数上。深度千分尺的基准靠换杆选择；内径千分尺的基准做在量具里，永远取不下来。</p>
+
+    <h4>算例</h4>
+    <ol>
+      <li><strong>量爪。</strong>这是 5&ndash;30&nbsp;mm 的量具，所以基准是 <strong>5.00&nbsp;mm</strong>。</li>
+      <li><strong>主尺</strong> &mdash; 微分筒盖住的第一个数字：<strong>17.50&nbsp;mm</strong>。</li>
+      <li><strong>基准线上的微分筒格数</strong>：30 &times; 0.01 = <strong>0.30&nbsp;mm</strong>。</li>
+    </ol>
+    <p>5.00 + 17.50 + 0.30 = <strong>22.80&nbsp;mm</strong>。忘了第 1 步，你会报出 17.80&nbsp;mm &mdash; 比眼前这个孔小了 5&nbsp;mm。</p>
+
+    <h4>轻轻摆动，取<em>最大</em>读数</h4>
+    <p>内径千分尺没有尺架可以靠着对正，只要歪一点量到的就是弦而不是直径 &mdash; 而弦永远比直径短。在棘轮打滑的同时把量具在孔里轻轻摆动，取你能找到的<em>最大</em>值。那是唯一可能正确的读数。</p>
+    <p>然后<strong>先锁住测微螺杆再退出来</strong>。量爪在孔里的时候你没法看刻度，而没锁就往外拖，尺寸就变了。</p>
+
+    <h4>对零：它没有可以合拢的东西</h4>
+    <p>外径千分尺靠两个测量面合拢来对零。内径千分尺做不到 &mdash; 量爪永远不会相遇。它要用一个尺寸经过检定的<strong>校对环规</strong>来设定，这也是为什么 <strong>测量内孔</strong>列表里正好有一个 25.000&nbsp;mm 的环规。</p>
+
+    <h3>能看着别人一步步读一次千分尺吗？</h3>
+    <p>可以。点量具上的<strong>演示读数</strong>，模拟器会把千分尺上当前的读数分五步动画演示 &mdash; 套筒读数、用基准线两侧的分度核对对齐、从最近的标注数字读微分筒、求总读数、零误差修正 &mdash; 每一步都直接画在刻度上，而不是写在侧边面板里。MSR 和 CSR 两个格子一开始是空的，随着推导才填进去，所以在你被教会怎么得到答案之前，答案不在屏幕上。可以用空格键和方向键暂停与逐步播放；三种螺杆、深度和内径量具都支持；模拟模式下可用，练习模式下要等交卷判分之后。</p>
+
+    <h3>千分尺与游标卡尺的区别</h3>
+    <p>螺旋测微器（千分尺）的精度（<strong>0.01 mm</strong>）高于标准游标卡尺（0.02 mm）。测量线材直径、板材厚度、轴承钢球尺寸，以及任何要求优于 0.1 mm 精度的零件时，它是首选量具。</p>
+
+    <h3>千分尺的部件与功能</h3>
+    <p>一把外径千分尺由十个可辨识的部件组成。把模拟器切到<strong>浏览 &rarr; 部件与结构</strong>，可以看到一张标注图，鼠标移过哪个部件它就亮起来；下表是同一份信息的速查表形式。</p>
+    <div style="overflow-x:auto;max-width:100%"><table>
+      <tr><th>#</th><th>部件</th><th>作用</th></tr>
+      <tr><td>1</td><td>U 形尺架（C 形架）</td><td>模锻的刚性骨架；任何变形都会直接进入读数。带隔热片。</td></tr>
+      <tr><td>2</td><td>测砧</td><td>固定的测量面，镶硬质合金并研磨平整；工件靠在它上面。</td></tr>
+      <tr><td>3</td><td>测微螺杆</td><td>可动测量面，装在 0.5 mm 螺距的精密螺纹上 &mdash; 微分筒转一圈 = 前进 0.5 mm。</td></tr>
+      <tr><td>4</td><td>锁紧螺母</td><td>夹住测微螺杆，让你取开读数时尺寸不会漂移。</td></tr>
+      <tr><td>5</td><td>固定套筒</td><td>不动的管件，承载基准线和主尺刻度。</td></tr>
+      <tr><td>6</td><td>主尺</td><td>基准线上方是整毫米，下方是半毫米；读微分筒边缘露出的部分。</td></tr>
+      <tr><td>7</td><td>基准线（指示线）</td><td>读数基准 &mdash; 落在它上面的微分筒分度就是 CSR。</td></tr>
+      <tr><td>8</td><td>微分筒</td><td>固定在测微螺杆上的滚花筒；它的斜口边缘就是主尺的游标。</td></tr>
+      <tr><td>9</td><td>微分刻度</td><td>斜口上一圈 50 格 &times; 0.01 mm（英制 25 &times; 0.001&Prime;）。</td></tr>
+      <tr><td>10</td><td>棘轮止动器</td><td>在预设力（&asymp;5&ndash;10 N）下打滑，让每个人合拢的力度都一样。</td></tr>
+    </table></div>
+
+    <h3>测量真实工件 &mdash; 练工件，不只练数字</h3>
+    <p>读刻度只是一半本事；另一半是把测微螺杆正确地合拢到工件上。模拟模式可以往量具里夹进八个真实工件 &mdash; 钢丝、薄板条、1/4&Prime; 轴承钢球、定位销、钻头柄部、M5 六角螺母、塞尺片和黄铜棒。测微螺杆会物理性地停在工件上，推不穿，所以合拢它的手感和真实量具一致；而且尺寸都按真实值给，不是凑成整数：8 mm 定位销磨得小几个微米，板材比公称规格薄，钻头柄部刻意做小才能装进夹头。</p>
+    <p>1/4&Prime; 钢球值得用两种单位各试一次。它正好是 6.35 mm，所以公制千分尺读 <strong>6.35 mm</strong>，英制千分尺读到干净的 <strong>0.250&Prime;</strong> &mdash; 同一个零件、同样的间隙，由两把不同的量具读出。大多数尺寸没有这么整齐：1.62 mm 的钢丝是 0.0638&Prime;，而 0.001&Prime; 的千分尺只能分辨到 0.064&Prime;。真实尺寸与读数之间的这个差值，就是量具的<strong>分辨力极限</strong>，只要适用，模拟器都会指出来。</p>
+    <p><strong>同一批工件是要判分的。</strong>练习模式在播放/暂停旁边加了<em>测量工件</em>练法，每一份测验的五道题里也至少有两道工件任务。这两种模式下，<em>判分</em>或<em>提交</em>都会锁住，直到测量面真正接触，所以测量步骤没法靠猜跳过，真实尺寸也要等你交卷之后才会揭示。判分用的工件与模拟模式里的是两套。打开<strong>零误差</strong>，测微螺杆仍然停在真实尺寸上 &mdash; 但刻度会一直偏大或偏小，直到你把它减掉，这正是真实量具要求的纪律。</p>
+
+    <h3>一个 12.34&nbsp;mm 的销子 &mdash; 最干净的一次读数</h3>
+    <p>取一根公称 12.34&nbsp;mm 的钢销。拖动模拟器的微分筒，让测微螺杆刚好触到这个尺寸的虚拟销子，然后把它读出来。算式只有一行：</p>
+    <div style="overflow-x:auto;max-width:100%"><table>
+      <tr><th>步骤</th><th>你读到什么</th><th>数值</th></tr>
+      <tr><td>1</td><td>套筒上最后一条可见的毫米刻线（微分筒边缘左侧）</td><td>MSR = 12 mm</td></tr>
+      <tr><td>2</td><td>半毫米刻线露出来了吗？（没有 &mdash; 微分筒边缘停在 12.5 线之前）</td><td>+ 0 mm</td></tr>
+      <tr><td>3</td><td>与基准线对齐的微分筒格数</td><td>CSR = 34</td></tr>
+      <tr><td>4</td><td>把 CSR 换算成毫米</td><td>34 &times; 0.01 = 0.34 mm</td></tr>
+      <tr><td>5</td><td>总读数 TR = 12 + 0 + 0.34</td><td><strong>12.34 mm</strong></td></tr>
+    </table></div>
+    <p>半毫米这个坑是学生最常漏的。微分筒每 <strong>0.5 mm</strong> 转完整一圈，所以同一个 CSR = 34 会同时出现在 12.34 mm <em>和</em> 12.84 mm &mdash; 唯一的区别就是套筒上那条半毫米刻线有没有露出来。如果它露出来了，先给整毫米读数加 0.5 mm：12.5 + (34 &times; 0.01) = <strong>12.84 mm</strong>。在模拟器里练上十遍，这条规则就会变成条件反射。</p>
+
+    <h3>每个实验室都会出现的五个错误</h3>
+    <ol>
+      <li><strong>忘了半毫米刻线。</strong>见上文。读数会偏低或偏高 0.5 mm。</li>
+      <li><strong>零误差判断错误。</strong>测量任何东西之前先合拢量爪、读一次微分筒。如果微分筒上的零线没有与基准线对齐，就存在零误差。正误差要从每个读数里减掉，负误差要加上。</li>
+      <li><strong>用主微分筒硬夹。</strong>所有正规千分尺的微分筒末端都带一个小滚花棘轮。最后合拢要交给它 &mdash; 响三声就停。用两根手指硬转主微分筒会压扁软材料、让测微螺杆变形，读数变成取决于操作者的手劲。</li>
+      <li><strong>看错半毫米线的另一侧。</strong>多数现代千分尺的半毫米刻线在毫米刻线的<em>下方</em>，并且略作错位。在光线不好的地方它们看起来像磨损痕迹。模拟器的放大视图能把这个区别看清楚。</li>
+      <li><strong>测量发热的工件。</strong>钢大约每 100 mm、每 10&nbsp;&deg;C 伸长 0.012 mm。刚下车床、50&nbsp;&deg;C 的工件拿 20&nbsp;&deg;C 的千分尺去量，100 mm 长度上会读出长 0.04 mm。让工件先与室温平衡。</li>
+    </ol>
+
+    <h3>千分尺还是游标卡尺 &mdash; 什么时候用哪一把</h3>
+    <div style="overflow-x:auto;max-width:100%"><table>
+      <tr><th>场景</th><th>选哪把</th><th>原因</th></tr>
+      <tr><td>长度公差约 0.05 mm</td><td>游标卡尺</td><td>精度足够，读数快得多</td></tr>
+      <tr><td>长度公差约 0.01 mm</td><td>千分尺</td><td>0.02&nbsp;mm 的游标卡尺分辨不出来</td></tr>
+      <tr><td>内径</td><td>游标卡尺（内量爪）或内径千分尺</td><td>标准千分尺只能测外形尺寸</td></tr>
+      <tr><td>长度超出千分尺量程 25 mm 以上</td><td>游标卡尺，或更大规格的千分尺</td><td>每把千分尺覆盖 25 mm，需要 0&minus;25、25&minus;50、50&minus;75 一套</td></tr>
+      <tr><td>线材直径</td><td>千分尺</td><td>宽平的测砧正是最合适的接触几何</td></tr>
+      <tr><td>管壁厚度</td><td>带球面测砧的千分尺</td><td>圆筒壁必须沿径向测量</td></tr>
+    </table></div>
+
+    <h3>面向美国 CTE 与 NIMS 课程的千分尺练习</h3>
+    <p>在美国的机加工车间和技术学校里，这把量具就叫 <strong>micrometer</strong> 或 <strong>outside mic</strong>（<em>outside micrometer</em> 的简称）。正式名称"screw gauge"在英联邦、英国和南亚的课程里更常见。两者是同一种量具；不管你当初先学的是哪个名字，读法完全一样。</p>
+    <p><strong>NIMS（美国金属加工技能协会）测量、材料与安全</strong>认证 &mdash; 美国机加工学徒和 CTE 制造类培养方案的基础资质 &mdash; 要求学生能准确读出千分尺到 <strong>0.001&Prime;</strong>（千分之一英寸）。本模拟器的<strong>英制模式</strong>（公制 / 英制 切换）正是照着这个来的：0&ndash;1&Prime; 外径千分尺、25 分度微分筒、固定 LC = 0.001&Prime;，并且带完整的零误差模拟。练习与测验模式复刻了 NIMS 实操考核里"读数并报出"的形式。</p>
+    <p>对于 <strong>NCCER 机加工一级</strong>或各州采用的精密加工 CTE 课程的学生，同样适用 0.001&Prime; 的读数要求。许多美国社区学院的制造类课程采用 <strong>Precision Machining Technology</strong> 教材（与 SME 和 NIMS 标准对齐），其中千分尺的熟练使用出现在第一个模块里，和钢直尺、游标卡尺并列。</p>
+    <p>美国车间在多数制造业领域默认使用<strong>英制千分尺</strong>，尤其是汽车、航空航天和国防行业 &mdash; 但按 ISO 图纸加工时就要用公制千分尺。在本模拟器里来回切换，练的正是美国机加工人在国内订单与出口规格订单之间来回切换时需要的那份熟练。</p>
+
+    <h3>千分尺在世界各地的叫法</h3>
+    <p>同一种量具在每个课程体系里都有不同的名字。它们的读法都一样 &mdash; 先套筒、再微分筒、然后相加：</p>
+    <ul>
+      <li><strong>印尼语和马来语：</strong><em>mikrometer sekrup</em> &mdash; 印尼中学物理的标准术语，与 <em>jangka sorong</em>（游标卡尺）并列。</li>
+      <li><strong>西班牙语：</strong><em>micr&oacute;metro</em> 或 <em>tornillo microm&eacute;trico</em>。</li>
+      <li><strong>葡萄牙语：</strong><em>micr&ocirc;metro</em>。</li>
+      <li><strong>英国与南亚课程：</strong>micrometer screw gauge，或简作 screw gauge。</li>
+      <li><strong>美国车间：</strong>micrometer，或"outside mic"。</li>
+    </ul>
+
+    <h3>校准与标准</h3>
+    <ul>
+      <li><strong>ISO 3611:2010</strong> &mdash; <em>产品几何技术规范（GPS）&mdash; 尺寸测量设备：外径千分尺 &mdash; 设计与计量特性。</em> 规定了各测量长度上的最大允许误差。</li>
+      <li><strong>ASME B89.1.13-2013</strong> &mdash; <em>Micrometers（千分尺）。</em> 美国标准（美国机械工程师学会），规定美国制造业和检验中使用的外径、内径、深度千分尺的精度、校准周期和允许误差。</li>
+      <li><strong>BS 870:2008</strong> &mdash; 外径千分尺的英国标准；至今仍被英国及英联邦工程课程引用。</li>
+      <li><strong>JIS B 7502</strong> &mdash; 日本标准，涉及三丰（Mitutoyo）及其衍生量具时常被引用。</li>
+      <li><strong>校准实践：</strong>1&Prime;（25 mm）量程的外径千分尺，应至少每年一次对照可溯源的 1 级量块，在 0、0.200、0.400、0.600、0.800 和 1.000&Prime; 各点校验（车间使用场景）。美国计量实验室通常按 ANSI/NCSL Z540 或 ISO 17025 的要求进行校准。</li>
+    </ul>
+    <aside class="further-reading" aria-label="配套文章">
+      <p>想了解这个主题的深入教学指南（含算例和课堂改编建议），请阅读配套文章：<a href="https://mechsimulator.com/blog/articles/measuring-instruments-online-lab/"><strong>为什么每个工程课堂都该用上测量量具模拟器</strong></a>。</p>
+    </aside>
+
+    <h3>浏览相关模拟器</h3>
+    <p>如果你觉得这个螺旋测微器模拟器有帮助，不妨再看看我们的<a href="https://mechsimulator.com/tools/vernier-caliper/">游标卡尺模拟器</a>、<a href="https://mechsimulator.com/tools/dial-caliper/">带表卡尺模拟器</a>、<a href="https://mechsimulator.com/tools/dial-gauge/">百分表模拟器</a>、<a href="https://mechsimulator.com/tools/tolerance-fits/">公差与配合计算器</a>和<a href="https://mechsimulator.com/tools/thread-nomenclature/">螺纹标注训练器</a>，继续动手练习。</p>
+    <p class="page-updated" style="margin:1.6rem 0 0;font-size:.78rem;color:var(--text-dim,#8b93a7);letter-spacing:.01em;opacity:.85">更新于 <time datetime="2026-09-26">2026 年 9 月 26 日</time>（中文版）</p>
+  </section>
