@@ -4204,7 +4204,7 @@ function updateSystemUI() {
   const imp = state.system === 'imp';
   $('unit-si').classList.toggle('active', !imp);
   $('unit-imp').classList.toggle('active', imp);
-  $('si-subunits').style.display = imp ? 'none' : '';
+  $('si-subunits').style.display = 'none';
 
   // Metric-only controls make no sense in Imperial — gray them out
   setPrecisionUI();   // the pills read 1/16 | 1/32 in Imperial, 1 | 0.5 in SI
