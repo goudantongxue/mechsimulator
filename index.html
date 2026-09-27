@@ -53,11 +53,14 @@
     }
 
     .tool-card {
+      display: block;
       background: #161b22;
       border: 1px solid #30363d;
       border-radius: 12px;
       overflow: hidden;
       transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+      text-decoration: none;
+      color: inherit;
     }
 
     .tool-card:hover {
@@ -160,44 +163,32 @@
 
   <main class="tools-grid">
 
-    <div class="tool-card">
+    <a class="tool-card" href="ruler/steel-ruler-light-zh.html">
       <div class="card-body">
         <div class="icon">📏</div>
         <span class="tag">精度 0.5 mm / 1/16"</span>
         <h2>钢尺模拟器</h2>
-        <p>Steel Ruler — 练习 0–150 mm 毫米刻度和英寸 1/16" 精度读数，含引导练习和计时测验。</p>
-        <div class="links">
-          <a href="ruler/steel-ruler-light-zh.html" class="btn-primary">中文版</a>
-          <a href="ruler/steel-ruler-light.html" class="btn-secondary">English</a>
-        </div>
+        <p>练习 0–150 mm 毫米刻度和英寸 1/16" 精度读数，含引导练习和计时测验。</p>
       </div>
-    </div>
+    </a>
 
-    <div class="tool-card">
+    <a class="tool-card" href="vernier/vernier-caliper-light-zh.html">
       <div class="card-body">
         <div class="icon">📐</div>
         <span class="tag">精度 0.02 mm</span>
         <h2>游标卡尺模拟器</h2>
-        <p>Vernier Caliper — 练习游标卡尺读数，支持公制和英制，含外径、内径和深度测量模式。</p>
-        <div class="links">
-          <a href="vernier/vernier-caliper-light-zh.html" class="btn-primary">中文版</a>
-          <a href="vernier/vernier-caliper-light.html" class="btn-secondary">English</a>
-        </div>
+        <p>练习游标卡尺读数，支持公制和英制，含外径、内径和深度测量模式。</p>
       </div>
-    </div>
+    </a>
 
-    <div class="tool-card">
+    <a class="tool-card" href="micrometer/screw-gauge-light-zh.html">
       <div class="card-body">
         <div class="icon">🔧</div>
         <span class="tag">精度 0.01 mm</span>
         <h2>螺旋测微器模拟器</h2>
-        <p>Micrometer / Screw Gauge — 练习螺旋测微器读数，含主尺、副尺和估读练习。</p>
-        <div class="links">
-          <a href="micrometer/screw-gauge-light-zh.html" class="btn-primary">中文版</a>
-          <a href="micrometer/screw-gauge-light.html" class="btn-secondary">English</a>
-        </div>
+        <p>练习螺旋测微器读数，含主尺、副尺和估读练习。</p>
       </div>
-    </div>
+    </a>
 
   </main>
 
