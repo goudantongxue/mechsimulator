@@ -2239,8 +2239,8 @@ header h1 {
       <div class="opt-chip opt-units" id="si-subunits" role="group" aria-label="公制显示单位" style="display:none">
         <span class="rb-lbl">单位</span>
         <span class="seg">
-          <button id="unit-mm" type="button" class="unit-btn active" data-unit="mm">mm</button>
-          <button id="unit-cm" type="button" class="unit-btn" data-unit="cm">cm</button>
+          <button id="unit-mm" type="button" class="unit-btn" data-unit="mm">mm</button>
+          <button id="unit-cm" type="button" class="unit-btn active" data-unit="cm">cm</button>
         </span>
       </div>
       <div class="opt-chip opt-units" id="lc-chip" role="group" aria-label="最小分度值（精度）" title="精度 — 最小分度值" style="display:none">
@@ -2250,10 +2250,10 @@ header h1 {
           <button type="button" class="unit-btn lc-pill" data-lc="0.5" data-imp="32">0.5</button>
         </span>
       </div>
-      <button class="opt-chip rb-tgl" id="opt-twocursor" type="button" aria-pressed="false" title="双游标测量（偏移法）">&#10010;&nbsp;双游标</button>
-      <button class="opt-chip rb-tgl" id="opt-snap" type="button" aria-pressed="false" title="把游标吸附到常用紧固件 / 车间尺寸">&#8633;&nbsp;吸附</button>
-      <button class="opt-chip rb-tgl" id="opt-estimate" type="button" aria-pressed="true" title="让游标可以停在两条刻度线之间，估读到最后一位（0.1 mm）">&#177;&nbsp;估读</button>
-      <div class="opt-chip opt-ze" title="零点磨损误差练习">
+      <button class="opt-chip rb-tgl" id="opt-twocursor" type="button" aria-pressed="false" title="双游标测量（偏移法）" style="display:none">&#10010;&nbsp;双游标</button>
+      <button class="opt-chip rb-tgl" id="opt-snap" type="button" aria-pressed="false" title="把游标吸附到常用紧固件 / 车间尺寸" style="display:none">&#8633;&nbsp;吸附</button>
+      <button class="opt-chip rb-tgl" id="opt-estimate" type="button" aria-pressed="true" title="让游标可以停在两条刻度线之间，估读到最后一位（0.1 mm）" style="display:none">&#177;&nbsp;估读</button>
+      <div class="opt-chip opt-ze" title="零点磨损误差练习" style="display:none">
         <span class="rb-lbl">零点</span>
         <button id="opt-ze-dn" type="button" aria-label="减小零点磨损量">&minus;</button>
         <span id="opt-ze-val">0 mm</span>
@@ -2657,8 +2657,8 @@ const state = {
   hinted      : false,
   // Options (Pass A)
   system      : 'si',      // 'si' | 'imp' — measurement system; modules never mix
-  units       : 'mm',      // 'mm' | 'cm' (SI sub-unit) | 'inch' (forced in imp)
-  siUnit      : 'mm',      // remembered SI sub-unit while in imp mode
+  units       : 'cm',      // 'mm' | 'cm' (SI sub-unit) | 'inch' (forced in imp)
+  siUnit      : 'cm',      // remembered SI sub-unit while in imp mode
   snapCommon  : false,     // snap to common fastener sizes
   estimate    : true,      // 允许游标停在两条刻线之间（估读最后一位）
   zeroError   : 0,         // worn-zero offset in mm (−2..+2)
@@ -3060,8 +3060,8 @@ function drawRuler() {
     drawInchScale(BOT_BASE, -1);
   } else {
     // 6-7. Both edges: cm labels only
-    drawMetricScale(TOP_BASE, 1, true);
-    drawMetricScale(BOT_BASE, -1, true);
+    drawMetricScale(TOP_BASE, 1, false);
+    drawMetricScale(BOT_BASE, -1, false);
   }
 
   // 8. Brand engraving in the middle band
