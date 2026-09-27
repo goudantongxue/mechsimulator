@@ -6640,7 +6640,7 @@ function animStep(ts) {
     if (next >= maxMm) { next = maxMm; state.animDir = -1; }
     const minMm = wpMinMm();
     if (next <= minMm) { next = minMm; state.animDir =  1; }
-    state.mm = clampMm(snapToLc(next));
+    state.mm = clampMm(isImperial() ? snapToLc(next) : snapToEst(next));
   }
   state.animLast = ts;
   render();
